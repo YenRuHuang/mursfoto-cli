@@ -156,6 +156,53 @@ program
     await runDoctor();
   });
 
+// smart 命令 - 🚀 階段 1 智能化功能
+const smartCmd = program
+  .command('smart')
+  .description('🚀 智能化自動開發功能 (階段 1)');
+
+// GitHub 自動化
+smartCmd
+  .command('github <action>')
+  .description('🐙 GitHub API 完全自動化')
+  .option('-n, --name <name>', '項目名稱')
+  .option('-d, --description <description>', '項目描述')
+  .option('-t, --template <template>', '使用模板')
+  .option('--no-release', '不創建初始 Release')
+  .option('--no-cicd', '不設置 CI/CD')
+  .option('--no-monitoring', '不啟用監控')
+  .action(async (action, options) => {
+    const SmartCommands = require('../lib/commands/smart');
+    const smart = new SmartCommands();
+    await smart.githubAutomate(action, options);
+  });
+
+// 錯誤記憶系統
+smartCmd
+  .command('memory <action>')
+  .description('🧠 智能錯誤記憶系統')
+  .option('-q, --query <query>', '搜尋關鍵字')
+  .option('-d, --days <days>', '天數', '30')
+  .option('-f, --file <file>', '檔案路徑')
+  .action(async (action, options) => {
+    const SmartCommands = require('../lib/commands/smart');
+    const smart = new SmartCommands();
+    await smart.errorMemoryCommand(action, options);
+  });
+
+// n8n 自動化模板
+smartCmd
+  .command('n8n <action>')
+  .description('🔄 n8n 自動化工作流程模板')
+  .option('-n, --name <name>', '項目名稱')
+  .option('-q, --query <query>', '搜尋關鍵字')
+  .option('-c, --category <category>', '模板類別')
+  .action(async (action, options) => {
+    const SmartCommands = require('../lib/commands/smart');
+    const smart = new SmartCommands();
+    await smart.n8nCommand(action, options);
+  });
+
 // 錯誤處理
 program.configureHelp({
   sortSubcommands: true,
