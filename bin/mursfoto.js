@@ -6,6 +6,7 @@ require('dotenv').config();
 const { program } = require('commander');
 const chalk = require('chalk');
 const pkg = require('../package.json');
+const { wrapCommand } = require('../lib/utils/commandTracker');
 
 // 顯示歡迎頁面
 function showWelcome() {
@@ -33,10 +34,10 @@ program
   .option('--no-install', '跳過依賴安裝', false)
   .option('--no-git', '跳過 Git 初始化', false)
   .option('--no-gateway', '跳過 Gateway 註冊', false)
-  .action(async (projectName, options) => {
+  .action(wrapCommand('create', async (projectName, options) => {
     const { createProject } = require('../lib/commands/create');
     await createProject(projectName, options);
-  });
+  }, { command: 'create', template: 'options.template' }));
 
 // 部署命令
 program
@@ -45,10 +46,10 @@ program
   .description('🚀 部署項目到 Zeabur')
   .option('-e, --env <environment>', '部署環境 (dev, prod)', 'prod')
   .option('--auto-confirm', '自動確認所有操作', false)
-  .action(async (options) => {
+  .action(wrapCommand('deploy', async (options) => {
     const { deployProject } = require('../lib/commands/deploy');
     await deployProject(options);
-  });
+  }, { command: 'deploy', environment: 'options.env' }));
 
 // 狀態檢查命令
 program
@@ -174,11 +175,11 @@ smartCmd
   .option('--no-release', '不創建初始 Release')
   .option('--no-cicd', '不設置 CI/CD')
   .option('--no-monitoring', '不啟用監控')
-  .action(async (action, options) => {
+  .action(wrapCommand('smart github', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.githubAutomate(action, options);
-  });
+  }, { command: 'smart github', action: 'action' }));
 
 // 錯誤記憶系統
 smartCmd
@@ -187,11 +188,11 @@ smartCmd
   .option('-q, --query <query>', '搜尋關鍵字')
   .option('-d, --days <days>', '天數', '30')
   .option('-f, --file <file>', '檔案路徑')
-  .action(async (action, options) => {
+  .action(wrapCommand('smart error', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.errorMemoryCommand(action, options);
-  });
+  }, { command: 'smart error', action: 'action' }));
 
 // n8n 自動化模板
 smartCmd
@@ -200,11 +201,11 @@ smartCmd
   .option('-n, --name <name>', '項目名稱')
   .option('-q, --query <query>', '搜尋關鍵字')
   .option('-c, --category <category>', '模板類別')
-  .action(async (action, options) => {
+  .action(wrapCommand('smart n8n', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.n8nCommand(action, options);
-  });
+  }, { command: 'smart n8n', action: 'action' }));
 
 // 🆕 階段 2 新功能
 
@@ -216,11 +217,11 @@ smartCmd
   .option('-t, --type <type>', '生成類型 (component, api, test, optimize)')
   .option('-f, --file <file>', '目標檔案')
   .option('-l, --language <language>', '程式語言')
-  .action(async (action, options) => {
+  .action(wrapCommand('smart ai', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.aiCodeGenerate(action, options);
-  });
+  }, { command: 'smart ai', action: 'action' }));
 
 // 智能測試自動化
 smartCmd
@@ -229,11 +230,11 @@ smartCmd
   .option('-c, --coverage <percent>', '目標覆蓋率', '90')
   .option('-t, --type <type>', '測試類型 (unit, integration, e2e)')
   .option('--generate', '生成測試案例', false)
-  .action(async (action, options) => {
+  .action(wrapCommand('smart test', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.smartTestCommand(action, options);
-  });
+  }, { command: 'smart test', action: 'action' }));
 
 // 智能部署管道
 smartCmd
@@ -242,11 +243,11 @@ smartCmd
   .option('-e, --environment <env>', '部署環境', 'production')
   .option('-s, --strategy <strategy>', '部署策略 (blue-green, rolling)', 'rolling')
   .option('--auto-rollback', '自動回滾', true)
-  .action(async (action, options) => {
+  .action(wrapCommand('smart deploy', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.deploymentCommand(action, options);
-  });
+  }, { command: 'smart deploy', action: 'action' }));
 
 // 進階模板管理
 smartCmd
@@ -255,11 +256,11 @@ smartCmd
   .option('-p, --project-type <type>', '專案類型')
   .option('-f, --features <features>', '所需功能')
   .option('--marketplace', '使用模板市場', false)
-  .action(async (action, options) => {
+  .action(wrapCommand('smart template', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.templateCommand(action, options);
-  });
+  }, { command: 'smart template', action: 'action' }));
 
 // 效能監控與優化
 smartCmd
@@ -268,11 +269,11 @@ smartCmd
   .option('--auto-fix', '自動修復', false)
   .option('-r, --report <format>', '報告格式 (json, html, pdf)', 'html')
   .option('-t, --threshold <value>', '效能門檻')
-  .action(async (action, options) => {
+  .action(wrapCommand('smart optimize', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.optimizeCommand(action, options);
-  });
+  }, { command: 'smart optimize', action: 'action' }));
 
 // 🧠 Phase 2 - 智能學習和決策系統
 smartCmd
@@ -283,11 +284,11 @@ smartCmd
   .option('--command <cmd>', '手動記錄的命令名稱')
   .option('--success', '標記命令執行成功')
   .option('--duration <ms>', '命令執行時間（毫秒）')
-  .action(async (action, options) => {
+  .action(wrapCommand('smart learn', async (action, options) => {
     const SmartCommands = require('../lib/commands/smart');
     const smart = new SmartCommands();
     await smart.learningCommand(action, options);
-  });
+  }, { command: 'smart learn', action: 'action' }));
 
 // 錯誤處理
 program.configureHelp({

@@ -13,6 +13,13 @@
         "successes": 2,
         "total": 2
       }
+    },
+    "options.template": {
+      "options.template": {
+        "weight": 1,
+        "successes": 1,
+        "total": 1
+      }
     }
   },
   "workflowOptimization": {
@@ -35,5 +42,5 @@
   },
   "errorPrevention": {},
   "resourceOptimization": {},
-  "learningConfidence": 0.1
+  "learningConfidence": 0.11
 }

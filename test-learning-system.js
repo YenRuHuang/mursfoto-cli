@@ -82,15 +82,14 @@ async function testLearningSystem() {
     console.log(chalk.blue('📊 學習統計結果:'));
     console.log(`  • 總命令數: ${stats.totalCommands}`);
     console.log(`  • 唯一命令: ${stats.uniqueCommands}`);
-    console.log(`  • 平均成功率: ${Math.round(stats.averageSuccessRate * 100)}%`);
-    console.log(`  • 學習置信度: ${Math.round(stats.learningConfidence * 100)}%`);
+    console.log(`  • 平均成功率: ${stats.averageSuccessRate}%`);
+    console.log(`  • 學習置信度: ${stats.learningConfidence}%`);
     console.log(`  • 會話命令數: ${stats.sessionCommands}`);
     
     if (stats.mostUsedCommands.length > 0) {
       console.log(chalk.blue('\n🔥 最常用命令:'));
       stats.mostUsedCommands.forEach((cmd, index) => {
-        const successRate = Math.round(cmd.successRate * 100);
-        console.log(chalk.cyan(`  ${index + 1}. ${cmd.command} - ${cmd.count}次 (${successRate}% 成功率)`));
+        console.log(chalk.cyan(`  ${index + 1}. ${cmd.command} - ${cmd.count}次 (${cmd.successRate}% 成功率)`));
       });
     }
     

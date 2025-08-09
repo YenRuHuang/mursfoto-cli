@@ -118,6 +118,22 @@
           "type": "test"
         }
       ]
+    },
+    "create": {
+      "count": 1,
+      "totalDuration": 195,
+      "successRate": 1,
+      "failures": [],
+      "averageArgs": {
+        "test-learning": 1,
+        "[object Object]": 2
+      },
+      "contexts": [
+        {
+          "command": "create",
+          "template": "options.template"
+        }
+      ]
     }
   },
   "preferences": {},
