@@ -290,6 +290,50 @@ smartCmd
     await smart.learningCommand(action, options);
   }, { command: 'smart learn', action: 'action' }));
 
+// 🌍 Phase 3 - 多雲平台管理
+smartCmd
+  .command('cloud <action>')
+  .description('🌍 多雲平台管理與部署 - Phase 3')
+  .option('-p, --platform <platform>', '雲平台名稱')
+  .option('-t, --project-type <type>', '專案類型', 'web')
+  .option('-b, --budget <budget>', '預算範圍', 'medium')
+  .option('-r, --region <region>', '部署地區', 'global')
+  .action(wrapCommand('smart cloud', async (action, options) => {
+    const SmartCommands = require('../lib/commands/smart');
+    const smart = new SmartCommands();
+    await smart.multiCloudCommand(action, options);
+  }, { command: 'smart cloud', action: 'action' }));
+
+// 🐳 Phase 3 - 容器優化服務
+smartCmd
+  .command('container <action>')
+  .description('🐳 智能容器優化與管理 - Phase 3')
+  .option('-l, --language <lang>', '程式語言', 'nodejs')
+  .option('-f, --framework <framework>', '框架名稱')
+  .option('-p, --port <port>', '應用端口', '3000')
+  .option('--analyze-path <path>', '分析路徑', '.')
+  .action(wrapCommand('smart container', async (action, options) => {
+    const SmartCommands = require('../lib/commands/smart');
+    const smart = new SmartCommands();
+    await smart.containerCommand(action, options);
+  }, { command: 'smart container', action: 'action' }));
+
+// 💰 Phase 3 - 成本分析服務
+smartCmd
+  .command('cost <action>')
+  .description('💰 智能成本分析與優化 - Phase 3')
+  .option('-p, --platforms <platforms...>', '分析平台列表')
+  .option('--vcpu <vcpu>', 'vCPU 需求', '2')
+  .option('--memory <memory>', '記憶體需求 (GB)', '4')
+  .option('--storage <storage>', '存儲需求 (GB)', '20')
+  .option('--traffic <traffic>', '月流量 (GB)', '100')
+  .option('-f, --file <file>', '報告文件路徑')
+  .action(wrapCommand('smart cost', async (action, options) => {
+    const SmartCommands = require('../lib/commands/smart');
+    const smart = new SmartCommands();
+    await smart.costCommand(action, options);
+  }, { command: 'smart cost', action: 'action' }));
+
 // 錯誤處理
 program.configureHelp({
   sortSubcommands: true,

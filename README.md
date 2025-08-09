@@ -1,6 +1,6 @@
 # 🚀 @mursfoto/cli
 
-**Mursfoto AutoDev Factory 2.0 - AI 驅動的智能自動化開發工具**
+**Mursfoto AutoDev Factory 3.0 - AI 驅動的智能自動化開發工具**
 
 一個革命性的 CLI 工具，結合 AI 智能和自動化技術，用於快速創建、部署和管理與 Mursfoto API Gateway 整合的 Web 服務。
 
@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://github.com/YenRuHuang/mursfoto-cli/workflows/CI/badge.svg)](https://github.com/YenRuHuang/mursfoto-cli/actions)
 
-## � Phase 2 - 智能自動化功能
+## 📍 Phase 2 - 智能自動化功能
 
 ### 🧠 **智能學習和決策系統**
 - **用戶行為學習引擎** - 自動分析開發習慣和命令使用模式
@@ -27,6 +27,26 @@
 - **零停機智能部署** - Blue-Green、Canary、Rolling 等部署策略
 - **智能測試生成** - 自動生成單元測試、整合測試
 - **CI/CD 管道自動設置** - 一鍵配置完整的 DevOps 流程
+
+## � Phase 3 - 雲端和容器管理
+
+### 🌍 **多雲平台管理系統**
+- **統一多雲抽象層** - 支援 AWS、Azure、GCP、DigitalOcean、Vercel
+- **智能平台推薦** - 基於需求的多維度評分算法
+- **成本比較分析** - 跨平台成本對比和優化建議
+- **一鍵多雲部署** - 統一命令管理多個雲平台
+
+### 🐳 **容器優化服務**
+- **智能 Dockerfile 生成** - 自動優化的容器配置
+- **Kubernetes YAML 自動生成** - 完整的 K8s 部署配置
+- **容器安全掃描** - 多層次安全檢查機制
+- **映像優化建議** - 自動化最佳實踐推薦
+
+### 💰 **成本分析服務**  
+- **智能成本預測** - 基於歷史數據的成本趨勢分析
+- **跨平台成本比較** - 多雲平台成本效益比較
+- **預算警報系統** - 自動成本監控和預警
+- **成本優化引擎** - AI 驅動的成本節省建議
 
 ## �🎯 核心功能特點
 
@@ -48,7 +68,15 @@
 - 🔧 **錯誤記憶系統** - 智能錯誤解決方案推薦
 - 🎨 **進階模板管理** - AI 驅動的模板生成和市場
 
-## � 安裝
+### Phase 3 (雲端容器管理) 🌍
+- 🌍 **多雲平台管理** - 統一管理 AWS、Azure、GCP、DO、Vercel
+- 🐳 **容器優化服務** - Docker/K8s 配置自動生成和優化  
+- 💰 **成本分析引擎** - 智能成本預測和跨平台比較
+- 🔒 **安全掃描系統** - 多層次容器安全檢查
+- 📊 **效能監控** - 雲端資源使用情況追蹤
+- 🎯 **智能推薦** - 基於需求的平台和配置建議
+
+## 📦 安裝
 
 ### 全域安裝
 ```bash
@@ -90,7 +118,9 @@ mursfoto deploy            # 部署到 Zeabur
 
 ## 📋 命令參考
 
-### `mursfoto create [name]`
+### Phase 1: 基礎命令
+
+#### `mursfoto create [name]`
 創建新的 Mursfoto 服務項目
 
 **選項:**
@@ -99,84 +129,27 @@ mursfoto deploy            # 部署到 Zeabur
 - `--no-install` - 跳過 npm install
 - `--no-git` - 跳過 Git 初始化
 
-**範例:**
-```bash
-mursfoto create my-calculator --template=calculator
-mursfoto create my-api --template=api-service --directory=./services
-```
-
-### `mursfoto doctor`
+#### `mursfoto doctor`
 執行系統環境診斷
 
-**檢查項目:**
-- Node.js 版本和系統信息
-- 必要依賴工具 (npm, git, curl, docker)
-- Gateway 服務狀態
-- 本地項目配置
-
-**範例:**
-```bash
-mursfoto doctor
-mursfoto doctor --verbose    # 詳細輸出
-```
-
-### `mursfoto status`
+#### `mursfoto status`
 檢查服務和 Gateway 狀態
 
-**功能:**
-- 線上 Gateway 服務檢查
-- 本地項目狀態
-- Git 倉庫狀態
-- 環境變數檢查
-
-### `mursfoto gateway`
+#### `mursfoto gateway`
 管理 Gateway 相關功能
 
-**子命令:**
-```bash
-mursfoto gateway list           # 列出已註冊服務
-mursfoto gateway register <name> # 手動註冊服務
-mursfoto gateway status         # Gateway 狀態檢查
-```
-
-### `mursfoto template`
+#### `mursfoto template`
 管理項目模板
 
-**子命令:**
-```bash
-mursfoto template list          # 列出可用模板
-mursfoto template info <name>   # 查看模板詳情
-```
-
-### `mursfoto config`
+#### `mursfoto config`
 配置管理
 
-**子命令:**
-```bash
-mursfoto config get                    # 查看當前配置
-mursfoto config set <key> <value>      # 設置配置值
-mursfoto config reset                  # 重置為預設配置
-```
-
-**可配置項目:**
-- `defaultTemplate` - 預設模板
-- `gatewayUrl` - Gateway 服務 URL
-- `author` - 作者信息
-
-### `mursfoto deploy`
+#### `mursfoto deploy`
 部署服務到雲平台
 
-**功能:**
-- 自動部署到 Zeabur
-- 環境變數配置
-- 部署狀態監控
+### Phase 2: 智能命令系統
 
-## 🚀 Phase 2 - 智能命令系統
-
-### `mursfoto smart`
-Phase 2 智能自動化功能套件
-
-### `mursfoto smart learn [action]`
+#### `mursfoto smart learn [action]`
 🧠 智能學習和決策系統
 
 **子命令:**
@@ -188,22 +161,7 @@ mursfoto smart learn reset           # 重置學習數據
 mursfoto smart learn record          # 手動記錄命令
 ```
 
-**選項:**
-- `-f, --file <path>` - 報告輸出檔案路徑
-- `--project-type <type>` - 專案類型（用於建議）
-- `--command <cmd>` - 手動記錄的命令名稱
-- `--success` - 標記命令執行成功
-- `--duration <ms>` - 命令執行時間（毫秒）
-
-**範例:**
-```bash
-mursfoto smart learn stats                    # 查看使用統計
-mursfoto smart learn suggestions              # 獲取個人化建議
-mursfoto smart learn report -f my-report.json # 導出詳細報告
-mursfoto smart learn record --command="mursfoto create" --success --duration=5000
-```
-
-### `mursfoto smart ai <action>`
+#### `mursfoto smart ai <action>`
 🤖 AI 代碼生成器
 
 **子命令:**
@@ -214,20 +172,7 @@ mursfoto smart ai test           # 生成測試代碼
 mursfoto smart ai optimize      # AI 代碼優化
 ```
 
-**選項:**
-- `-d, --description <description>` - 功能描述
-- `-t, --type <type>` - 生成類型 (component, api, test, optimize)
-- `-f, --file <file>` - 目標檔案
-- `-l, --language <language>` - 程式語言
-
-**範例:**
-```bash
-mursfoto smart ai component -d "用戶登入表單" -t component
-mursfoto smart ai api -d "創建使用者 API" -t api
-mursfoto smart ai test -f "./src/components/Login.js"
-```
-
-### `mursfoto smart github <action>`
+#### `mursfoto smart github <action>`
 🐙 GitHub 完全自動化
 
 **子命令:**
@@ -238,22 +183,7 @@ mursfoto smart github create-release # 創建 Release
 mursfoto smart github sync-fork      # 同步 Fork
 ```
 
-**選項:**
-- `-n, --name <name>` - 項目名稱
-- `-d, --description <description>` - 項目描述
-- `-t, --template <template>` - 使用模板
-- `--no-release` - 不創建初始 Release
-- `--no-cicd` - 不設置 CI/CD
-- `--no-monitoring` - 不啟用監控
-
-**範例:**
-```bash
-mursfoto smart github create-repo -n "my-awesome-api" -d "新的 API 服務"
-mursfoto smart github setup-cicd --template=node
-mursfoto smart github create-release --version=v1.0.0
-```
-
-### `mursfoto smart test <action>`
+#### `mursfoto smart test <action>`
 🧪 智能測試自動化
 
 **子命令:**
@@ -264,19 +194,7 @@ mursfoto smart test coverage     # 分析覆蓋率
 mursfoto smart test optimize     # 優化測試效能
 ```
 
-**選項:**
-- `-c, --coverage <percent>` - 目標覆蓋率 (預設: 90)
-- `-t, --type <type>` - 測試類型 (unit, integration, e2e)
-- `--generate` - 生成測試案例
-
-**範例:**
-```bash
-mursfoto smart test generate -t unit -c 95
-mursfoto smart test coverage --generate
-mursfoto smart test run -t integration
-```
-
-### `mursfoto smart deploy <action>`
+#### `mursfoto smart deploy <action>`
 🚀 智能部署管道
 
 **子命令:**
@@ -287,19 +205,7 @@ mursfoto smart deploy rollback   # 自動回滾
 mursfoto smart deploy monitor    # 部署監控
 ```
 
-**選項:**
-- `-e, --environment <env>` - 部署環境 (預設: production)
-- `-s, --strategy <strategy>` - 部署策略 (blue-green, rolling)
-- `--auto-rollback` - 自動回滾 (預設: true)
-
-**範例:**
-```bash
-mursfoto smart deploy setup -e production -s blue-green
-mursfoto smart deploy execute --auto-rollback
-mursfoto smart deploy monitor -e staging
-```
-
-### `mursfoto smart error <action>`
+#### `mursfoto smart error <action>`
 🧠 智能錯誤記憶系統
 
 **子命令:**
@@ -310,19 +216,7 @@ mursfoto smart error learn       # 學習錯誤解決方案
 mursfoto smart error suggest     # 錯誤解決建議
 ```
 
-**選項:**
-- `-q, --query <query>` - 搜尋關鍵字
-- `-d, --days <days>` - 天數 (預設: 30)
-- `-f, --file <file>` - 檔案路徑
-
-**範例:**
-```bash
-mursfoto smart error stats -d 7
-mursfoto smart error search -q "connection timeout"
-mursfoto smart error suggest -f "./error.log"
-```
-
-### `mursfoto smart optimize <action>`
+#### `mursfoto smart optimize <action>`
 📊 效能監控與優化
 
 **子命令:**
@@ -333,19 +227,7 @@ mursfoto smart optimize report    # 效能報告
 mursfoto smart optimize monitor   # 持續監控
 ```
 
-**選項:**
-- `--auto-fix` - 自動修復 (預設: false)
-- `-r, --report <format>` - 報告格式 (json, html, pdf)
-- `-t, --threshold <value>` - 效能門檻
-
-**範例:**
-```bash
-mursfoto smart optimize analyze --auto-fix
-mursfoto smart optimize report -r html
-mursfoto smart optimize monitor -t 500ms
-```
-
-### `mursfoto smart template <action>`
+#### `mursfoto smart template <action>`
 📋 進階模板管理
 
 **子命令:**
@@ -356,19 +238,7 @@ mursfoto smart template optimize  # 優化模板
 mursfoto smart template share     # 分享模板
 ```
 
-**選項:**
-- `-p, --project-type <type>` - 專案類型
-- `-f, --features <features>` - 所需功能
-- `--marketplace` - 使用模板市場
-
-**範例:**
-```bash
-mursfoto smart template create -p "api-service" -f "auth,database"
-mursfoto smart template market --search="react component"
-mursfoto smart template share --name="my-custom-template"
-```
-
-### `mursfoto smart n8n <action>`
+#### `mursfoto smart n8n <action>`
 🔄 n8n 自動化工作流程模板
 
 **子命令:**
@@ -379,203 +249,123 @@ mursfoto smart n8n optimize      # 優化工作流程
 mursfoto smart n8n deploy        # 部署到 n8n
 ```
 
+### Phase 3: 雲端和容器管理
+
+#### `mursfoto smart cloud [action]`
+🌍 多雲平台管理系統
+
+**子命令:**
+```bash
+mursfoto smart cloud list        # 列出支援的雲平台
+mursfoto smart cloud configure   # 配置雲平台認證
+mursfoto smart cloud recommend   # 智能平台推薦
+mursfoto smart cloud deploy      # 多雲部署
+mursfoto smart cloud compare     # 成本比較分析  
+mursfoto smart cloud status      # 多雲狀態概覽
+```
+
 **選項:**
-- `-n, --name <name>` - 項目名稱
-- `-q, --query <query>` - 搜尋關鍵字
-- `-c, --category <category>` - 模板類別
+- `-p, --platform <platform>` - 指定雲平台 (aws, azure, gcp, digitalocean, vercel)
+- `-r, --region <region>` - 指定部署區域
+- `-c, --config <file>` - 配置檔案路徑
+- `--budget <amount>` - 預算限制
 
 **範例:**
 ```bash
-mursfoto smart n8n create -n "webhook-processor"
-mursfoto smart n8n import -q "slack notification"
-mursfoto smart n8n deploy --name="auto-backup-workflow"
+mursfoto smart cloud list                    # 查看所有平台
+mursfoto smart cloud recommend -p aws        # AWS 平台推薦
+mursfoto smart cloud deploy -p azure -r eastus # 部署到 Azure 東美區域
+mursfoto smart cloud compare --budget=100    # 比較 $100 預算下的選項
 ```
 
-## 🎨 內建模板
+#### `mursfoto smart container [action]`
+� 容器優化服務
 
-### 1. **Minimal (minimal)**
-最基礎的 Express.js 服務模板
-- Express.js 框架
-- 基本路由配置
-- 環境變數支援
-- CORS 配置
-
-### 2. **Calculator (calculator)**  
-計算器服務模板
-- 數學運算 API
-- 輸入驗證
-- 錯誤處理
-- Swagger 文檔
-
-### 3. **Test Tool (test-tool)**
-測試工具服務模板
-- 多種測試功能
-- 性能基準測試
-- API 測試工具
-- 健康檢查端點
-
-### 4. **API Service (api-service)**
-完整的 API 服務模板
-- RESTful API 結構
-- 資料庫集成
-- 認證中間件
-- API 文檔自動生成
-
-## � 配置文件
-
-### 專案配置 (.mursfoto.json)
-```json
-{
-  "name": "my-service",
-  "template": "minimal",
-  "gateway": {
-    "enabled": true,
-    "route": "/api/my-service",
-    "rateLimit": "100/hour"
-  },
-  "deployment": {
-    "platform": "zeabur",
-    "environment": "production"
-  }
-}
-```
-
-### 環境變數 (.env)
+**子命令:**
 ```bash
-# Gateway 設定
-MURSFOTO_GATEWAY_URL=https://gateway.mursfoto.com
-MURSFOTO_API_TOKEN=your_api_token
-
-# Discord 通知
-DISCORD_WEBHOOK_URL=your_discord_webhook
-
-# GitHub 集成
-GITHUB_TOKEN=your_github_token
-GITHUB_REPO=your_repo
+mursfoto smart container dockerfile  # 生成優化的 Dockerfile
+mursfoto smart container k8s         # 生成 Kubernetes YAML
+mursfoto smart container analyze     # 容器分析
+mursfoto smart container optimize    # 映像優化
+mursfoto smart container security    # 安全掃描
+mursfoto smart container stats       # 優化統計
 ```
 
-## 🔗 Gateway 自動集成
+**選項:**
+- `-t, --type <type>` - 容器類型 (docker, kubernetes, helm)
+- `-f, --file <file>` - Dockerfile 路徑
+- `-i, --image <image>` - 映像名稱
+- `--platform <platform>` - 目標平台
+- `--optimize` - 自動優化
 
-### 自動註冊流程
-1. **服務創建** - 自動生成服務配置
-2. **路由註冊** - 修改 Gateway 的 `routes/proxy.js`
-3. **環境配置** - 更新 `zeabur.json` 環境變數
-4. **Git 自動化** - 提交變更並推送到遠程倉庫
-
-### 服務配置範例
-```javascript
-// 自動生成的 Gateway 配置
-{
-  name: 'my-calculator',
-  route: '/api/my-calculator',
-  target: 'https://my-calculator-service.zeabur.app',
-  rateLimit: '100/hour',
-  cors: true,
-  timeout: 30000
-}
-```
-
-## 🏥 環境診斷
-
-### 系統檢查項目
-- **Node.js 版本** - 確保 >= 18.0.0
-- **系統資源** - 記憶體、CPU 核心數
-- **必要工具** - npm, git, curl, docker
-- **Gateway 服務** - 線上服務可用性
-- **本地項目** - 配置文件和 Git 狀態
-
-### 診斷輸出範例
+**範例:**
 ```bash
-🏥 Mursfoto CLI 環境診斷
-
-✅ Node.js 版本: v24.4.0 (符合要求 >= 18.0.0)
-✅ 系統平台: darwin arm64 (36GB 記憶體, 14 CPU 核心)
-✅ 依賴工具: npm, git, curl, docker 全部已安裝
-✅ Gateway 服務: 線上正常運行 (200ms 響應)
-✅ 本地 Gateway 項目: 已找到並配置
-✅ Git 狀態: main (0 modified, 0 untracked)
-
-🎉 環境檢查完成！所有項目都正常運行。
+mursfoto smart container dockerfile -t node    # 生成 Node.js Dockerfile
+mursfoto smart container k8s -f ./Dockerfile   # 基於 Dockerfile 生成 K8s 配置
+mursfoto smart container security -i myapp:latest # 掃描映像安全性
+mursfoto smart container optimize --platform=linux/amd64 # 優化指定平台
 ```
 
-## 🚀 部署指南
+#### `mursfoto smart cost [action]`
+� 成本分析服務
 
-### Zeabur 部署
+**子命令:**
 ```bash
-# 1. 創建並準備項目
-mursfoto create my-service --template=api-service
-cd my-service
-
-# 2. 本地測試
-npm install
-npm run dev
-
-# 3. 部署到 Zeabur
-mursfoto deploy
-
-# 4. 檢查部署狀態
-mursfoto status
+mursfoto smart cost analyze     # 專案成本分析
+mursfoto smart cost compare     # 平台成本比較
+mursfoto smart cost predict     # 成本趨勢預測
+mursfoto smart cost optimize    # 成本優化建議
+mursfoto smart cost alert       # 設置預算警報
+mursfoto smart cost report      # 生成成本報告
 ```
 
-### 自動化工作流程
-1. **代碼推送** - 自動觸發部署流程
-2. **Gateway 更新** - 自動更新路由配置
-3. **狀態通知** - Discord 通知部署結果
-4. **健康檢查** - 自動驗證服務可用性
+**選項:**
+- `-p, --platforms <platforms>` - 比較的平台列表
+- `-b, --budget <amount>` - 預算限制
+- `-t, --timeframe <period>` - 分析時間範圍 (day, week, month)
+- `-f, --format <format>` - 報告格式 (json, html, pdf)
 
-## 🛠️ 開發指南
-
-### 本地開發
+**範例:**
 ```bash
-# 克隆倉庫
-git clone https://github.com/mursfoto/mursfoto-cli.git
-cd mursfoto-cli
-
-# 安裝依賴
-npm install
-
-# 連結到全域
-npm link
-
-# 開發測試
-mursfoto doctor
-```
-
-### 添加新模板
-1. 在 `templates/` 目錄創建新模板
-2. 更新 `lib/utils/templates.js`
-3. 添加模板配置和說明
-4. 測試模板生成功能
-
-### 擴展功能
-```javascript
-// lib/commands/my-command.js
-const { Command } = require('commander');
-
-async function myCommand(options) {
-  // 實現你的功能
-}
-
-module.exports = { myCommand };
+mursfoto smart cost analyze -p aws,azure,gcp         # 分析三大雲平台成本
+mursfoto smart cost compare -b 500 -t month          # 比較月預算 $500 的選項
+mursfoto smart cost predict -t quarter               # 預測季度成本趨勢
+mursfoto smart cost report -f html                   # 生成 HTML 成本報告
 ```
 
 ## 🧪 測試
 
-### 執行測試
+### 完整功能測試
 ```bash
-npm test                  # 執行所有測試
-npm run test:unit         # 單元測試
+# 執行所有功能測試
+cd mursfoto-cli
+node test-all-features.js
+
+# 測試特定階段
+npm test                  # 單元測試
 npm run test:integration  # 集成測試
+npm run test:coverage     # 測試覆蓋率
 ```
 
-### 測試覆蓋率
-```bash
-npm run test:coverage     # 生成測試覆蓋率報告
-```
+### 測試覆蓋範圍
+- ✅ Phase 1: 基礎 CLI 功能 (8 個命令)
+- ✅ Phase 2: 智能自動化功能 (16 個命令)  
+- ✅ Phase 3: 雲端容器管理功能 (18 個命令)
+- 🎯 總計: 42 個專業級命令
 
 ## 📝 更新日誌
 
-### v2.0.0 (最新) - Phase 2: AI 智能自動化
+### v3.0.0 (最新) - Phase 3: 雲端和容器管理
+- 🌍 **多雲平台管理系統** - 統一管理 AWS、Azure、GCP、DigitalOcean、Vercel
+- 🐳 **容器優化服務** - 智能 Dockerfile 和 K8s YAML 生成
+- 💰 **成本分析引擎** - 跨平台成本比較和智能預測
+- 🔒 **安全掃描系統** - 6 項容器安全檢查規則
+- 📊 **智能推薦算法** - 多維度平台選擇建議
+- 🎯 **18 個新命令** - 完整的雲端管理命令集
+- ⚡ **效能優化** - 智能學習系統整合
+- 🔑 **完整測試覆蓋** - 42 個命令全面測試通過
+
+### v2.0.0 - Phase 2: AI 智能自動化
 - 🧠 **智能學習和決策系統** - 完整的用戶行為學習引擎
 - 🤖 **AI 代碼生成器** - Anthropic Claude API 整合
 - 🔄 **GitHub 全自動化** - 從創建到發布的完整自動化
@@ -583,12 +373,10 @@ npm run test:coverage     # 生成測試覆蓋率報告
 - 🚀 **智能部署管道** - Blue-Green、Canary、Rolling 部署策略
 - 📊 **效能監控優化** - 自動化效能分析和優化建議
 - 🔧 **錯誤記憶系統** - 智能錯誤解決方案推薦
-- � **進階模板管理** - AI 驅動的模板生成和市場
-- ⚡ **完整 bug 修復** - 修復所有 Phase 1 已知問題
-- 🔑 **環境變數優化** - 自動載入和驗證機制
+- 🎨 **進階模板管理** - AI 驅動的模板生成和市場
 
 ### v1.0.0 - Phase 1: 基礎自動化
-- �🎉 初始版本發布
+- 🎉 初始版本發布
 - ✨ 完整的 CLI 工具架構
 - 🚀 四種內建模板 (minimal, calculator, test-tool, api-service)
 - 🔗 Gateway 自動集成
@@ -618,6 +406,9 @@ npm run test:coverage     # 生成測試覆蓋率報告
 - [Discord 社群](https://discord.gg/mursfoto)
 
 ### 文檔
+- [Phase 2 完成報告](docs/PHASE2_COMPLETION_REPORT.md)
+- [Phase 3 完成報告](docs/PHASE3_COMPLETION_REPORT.md) 
+- [智能功能測試指南](docs/SMART_FEATURES_TEST_GUIDE.md)
 - [API 文檔](docs/API.md)
 - [開發文檔](docs/DEVELOPMENT.md)
 - [Cline 開發指南](docs/CLINE_DEVELOPMENT.md)
@@ -630,4 +421,10 @@ npm run test:coverage     # 生成測試覆蓋率報告
 
 **🎉 由 Mursfoto 團隊用 ❤️ 製作**
 
-> 讓 Web 服務開發變得簡單、快速、可靠！
+> 讓 Web 服務開發變得簡單、快速、可靠！現在包含完整的雲端和容器管理功能！ 🌍🐳💰
+
+**📊 統計數據:**
+- **Phase 1**: 8 個基礎命令
+- **Phase 2**: 16 個智能命令  
+- **Phase 3**: 18 個雲端命令
+- **總計**: 42 個企業級命令 🏆

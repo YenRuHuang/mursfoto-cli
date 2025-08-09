@@ -134,6 +134,22 @@
           "template": "options.template"
         }
       ]
+    },
+    "smart error": {
+      "count": 1,
+      "totalDuration": 155,
+      "successRate": 1,
+      "failures": [],
+      "averageArgs": {
+        "stats": 1,
+        "[object Object]": 2
+      },
+      "contexts": [
+        {
+          "command": "smart error",
+          "action": "action"
+        }
+      ]
     }
   },
   "preferences": {},
