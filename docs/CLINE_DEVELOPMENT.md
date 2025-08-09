@@ -1,4 +1,6 @@
-# 🤖 使用 Cline + Claude 開發 Mursfoto CLI 指南
+# 🤖 使用 Cline + Claude 開發 Mursfoto CLI Phase 2 指南
+
+**Mursfoto AutoDev Factory 2.0 - AI 驅動智能開發工具協作指南**
 
 ## 🎯 開發環境特點
 

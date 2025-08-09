@@ -1,0 +1,39 @@
+{
+  "templateRecommendations": {
+    "minimal": {
+      "minimal": {
+        "weight": 1,
+        "successes": 2,
+        "total": 2
+      }
+    },
+    "calculator": {
+      "calculator": {
+        "weight": 1,
+        "successes": 2,
+        "total": 2
+      }
+    }
+  },
+  "workflowOptimization": {
+    "create-deploy": {
+      "steps": [
+        {
+          "command": "mursfoto deploy",
+          "success": false,
+          "timestamp": 1754734078036
+        },
+        {
+          "command": "mursfoto deploy",
+          "success": false,
+          "timestamp": 1754734234056
+        }
+      ],
+      "successRate": 0,
+      "optimizations": []
+    }
+  },
+  "errorPrevention": {},
+  "resourceOptimization": {},
+  "learningConfidence": 0.1
+}

@@ -1,0 +1,168 @@
+{
+  "commands": {
+    "mursfoto create": {
+      "count": 4,
+      "totalDuration": 9400,
+      "successRate": 1,
+      "failures": [],
+      "averageArgs": {
+        "my-project": 2,
+        "--template=minimal": 2,
+        "another-project": 2,
+        "--template=calculator": 2
+      },
+      "contexts": [
+        {
+          "template": "minimal",
+          "projectType": "web"
+        },
+        {
+          "template": "calculator",
+          "projectType": "web"
+        },
+        {
+          "template": "minimal",
+          "projectType": "web"
+        },
+        {
+          "template": "calculator",
+          "projectType": "web"
+        }
+      ]
+    },
+    "mursfoto smart github create-repo": {
+      "count": 2,
+      "totalDuration": 6400,
+      "successRate": 1,
+      "failures": [],
+      "averageArgs": {
+        "--name=test-repo": 2
+      },
+      "contexts": [
+        {
+          "projectType": "web",
+          "action": "create-repo"
+        },
+        {
+          "projectType": "web",
+          "action": "create-repo"
+        }
+      ]
+    },
+    "mursfoto deploy": {
+      "count": 2,
+      "totalDuration": 3600,
+      "successRate": 0,
+      "failures": [
+        {
+          "error": "Network timeout",
+          "timestamp": 1754734078036,
+          "context": {
+            "environment": "prod"
+          }
+        },
+        {
+          "error": "Network timeout",
+          "timestamp": 1754734234056,
+          "context": {
+            "environment": "prod"
+          }
+        }
+      ],
+      "averageArgs": {
+        "--env=prod": 2
+      },
+      "contexts": [
+        {
+          "environment": "prod"
+        },
+        {
+          "environment": "prod"
+        }
+      ]
+    },
+    "mursfoto smart ai component": {
+      "count": 2,
+      "totalDuration": 8200,
+      "successRate": 1,
+      "failures": [],
+      "averageArgs": {
+        "--type=react": 2
+      },
+      "contexts": [
+        {
+          "type": "react",
+          "framework": "react"
+        },
+        {
+          "type": "react",
+          "framework": "react"
+        }
+      ]
+    },
+    "mursfoto smart test generate": {
+      "count": 2,
+      "totalDuration": 7000,
+      "successRate": 1,
+      "failures": [],
+      "averageArgs": {
+        "--coverage=90": 2
+      },
+      "contexts": [
+        {
+          "coverage": 90,
+          "type": "test"
+        },
+        {
+          "coverage": 90,
+          "type": "test"
+        }
+      ]
+    }
+  },
+  "preferences": {},
+  "workPatterns": {},
+  "errorPatterns": {
+    "1754734078039": {
+      "totalErrors": 1,
+      "errorRate": 0.16666666666666666,
+      "commonErrors": [
+        [
+          "Network",
+          1
+        ]
+      ]
+    },
+    "1754734234059": {
+      "totalErrors": 1,
+      "errorRate": 0.16666666666666666,
+      "commonErrors": [
+        [
+          "Network",
+          1
+        ]
+      ]
+    }
+  },
+  "successPatterns": {},
+  "timePatterns": {
+    "1754734078039": {
+      "averageInterval": 0,
+      "commandsPerMinute": 180000,
+      "peakActivity": {
+        "hour": 18,
+        "count": 6
+      }
+    },
+    "1754734234059": {
+      "averageInterval": 0,
+      "commandsPerMinute": 120000,
+      "peakActivity": {
+        "hour": 18,
+        "count": 6
+      }
+    }
+  },
+  "projectTypes": {},
+  "deploymentPrefs": {}
+}
