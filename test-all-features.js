@@ -35,8 +35,13 @@ function runTest(description, command, expectedInOutput = null) {
   try {
     const result = execSync(command, { 
       encoding: 'utf-8', 
-      timeout: 30000,
-      stdio: 'pipe'
+      timeout: 15000,
+      stdio: 'pipe',
+      env: { 
+        ...process.env, 
+        MURSFOTO_QUICK_MODE: 'true',
+        NODE_ENV: 'test'
+      }
     });
     
     // 檢查預期輸出

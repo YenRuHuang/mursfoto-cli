@@ -135,18 +135,22 @@
         }
       ]
     },
-    "smart error": {
-      "count": 1,
-      "totalDuration": 155,
+    "smart learn": {
+      "count": 2,
+      "totalDuration": 296,
       "successRate": 1,
       "failures": [],
       "averageArgs": {
-        "stats": 1,
-        "[object Object]": 2
+        "stats": 2,
+        "[object Object]": 4
       },
       "contexts": [
         {
-          "command": "smart error",
+          "command": "smart learn",
+          "action": "action"
+        },
+        {
+          "command": "smart learn",
           "action": "action"
         }
       ]
