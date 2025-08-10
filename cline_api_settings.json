@@ -1,9 +1,0 @@
-{
-  "apiProvider": "claude-code",
-  "claudeCodeCliPath": "/Users/murs/.local/bin/claude-wrapper-cline",
-  "claudeCodeModel": "opus",
-  "maxRequestsPerTask": 30,
-  "autoApproveRepeatedTasks": false,
-  "contextWindowSize": 100000,
-  "maxOutputTokens": 8192
-}
