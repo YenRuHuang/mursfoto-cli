@@ -1,6 +1,6 @@
 {
   "name": "@mursfoto/cli",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Mursfoto AutoDev Factory 3.0 - AI 驅動的智慧自動化開發工具",
   "main": "bin/mursfoto.js",
   "bin": {
