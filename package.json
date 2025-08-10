@@ -1,6 +1,6 @@
 {
   "name": "@mursfoto/cli",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Mursfoto AutoDev Factory 3.0 - AI 驅動的智慧自動化開發工具",
   "main": "bin/mursfoto.js",
   "bin": {
@@ -22,7 +22,7 @@
     "publish:beta": "npm publish --tag beta",
     "publish:prod": "npm publish",
     "version:patch": "npm version patch --no-git-tag-version",
-    "version:minor": "npm version minor --no-git-tag-version", 
+    "version:minor": "npm version minor --no-git-tag-version",
     "version:major": "npm version major --no-git-tag-version",
     "release:patch": "node scripts/release.js patch",
     "release:minor": "node scripts/release.js minor",
@@ -34,7 +34,7 @@
   "keywords": [
     "mursfoto",
     "cli",
-    "api-gateway", 
+    "api-gateway",
     "automation",
     "project-generator",
     "deployment",
