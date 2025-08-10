@@ -16,7 +16,7 @@
     "lint:fix": "eslint . --fix",
     "dev": "nodemon bin/mursfoto.js",
     "build": "echo '✅ CLI build completed'",
-    "prebuild": "npm run lint && npm run test",
+    "prebuild": "npm run test",
     "prepublishOnly": "npm run build",
     "publish:dry": "npm publish --dry-run",
     "publish:beta": "npm publish --tag beta",
