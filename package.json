@@ -1,8 +1,8 @@
 {
   "name": "@mursfoto/cli",
-  "version": "1.0.0",
-  "description": "🚀 Mursfoto API Gateway 生態系統自動化工具 - 快速創建、部署和管理 Mursfoto 服務",
-  "main": "index.js",
+  "version": "3.0.0",
+  "description": "Mursfoto AutoDev Factory 3.0 - AI 驅動的智慧自動化開發工具",
+  "main": "bin/mursfoto.js",
   "bin": {
     "mursfoto": "./bin/mursfoto.js",
     "@mursfoto/create-project": "./bin/create-project.js"
@@ -11,13 +11,25 @@
     "start": "node bin/mursfoto.js",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev": "nodemon bin/mursfoto.js",
     "build": "echo '✅ CLI build completed'",
+    "prebuild": "npm run lint && npm run test",
+    "prepublishOnly": "npm run build",
     "publish:dry": "npm publish --dry-run",
     "publish:beta": "npm publish --tag beta",
-    "publish:prod": "npm publish"
+    "publish:prod": "npm publish",
+    "version:patch": "npm version patch --no-git-tag-version",
+    "version:minor": "npm version minor --no-git-tag-version", 
+    "version:major": "npm version major --no-git-tag-version",
+    "release:patch": "node scripts/release.js patch",
+    "release:minor": "node scripts/release.js minor",
+    "release:major": "node scripts/release.js major",
+    "release": "node scripts/release.js",
+    "changelog": "node scripts/generate-changelog.js",
+    "stats": "node scripts/npm-stats.js"
   },
   "keywords": [
     "mursfoto",
@@ -69,9 +81,10 @@
     "bin/",
     "lib/",
     "templates/",
-    "config/",
+    "docs/",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "preferGlobal": true,
   "publishConfig": {

@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-10T13:49:28.484Z",
+  "package": {
+    "name": "@mursfoto/cli",
+    "version": "3.0.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mursfoto/cli.git"
+    }
+  },
+  "npm": null,
+  "github": null,
+  "trends": []
+}
