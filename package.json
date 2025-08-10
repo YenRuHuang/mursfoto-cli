@@ -47,7 +47,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mursfoto/cli.git"
+    "url": "https://github.com/YenRuHuang/mursfoto-cli.git"
   },
   "engines": {
     "node": ">=18.0.0",

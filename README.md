@@ -411,8 +411,8 @@ npm run test:coverage     # 測試覆蓋率
 
 ## 🆘 支援
 
-### 問題回報
-- [GitHub Issues](https://github.com/mursfoto/mursfoto-cli/issues)
+### 問題回報  
+- [GitHub Issues](https://github.com/YenRuHuang/mursfoto-cli/issues)
 - [Discord 社群](https://discord.gg/mursfoto)
 
 ### 文檔
