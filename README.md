@@ -22,7 +22,7 @@
 - **@supabase/mcp-server-supabase** - 現代化數據庫服務整合
 - **@agent-infra/mcp-server-browser** - 高級瀏覽器自動化工具
 
-### � **17個推薦MCP服務器生態**
+### 🎯 **17個推薦MCP服務器生態**
 - **官方服務器** - filesystem, memory, sequential-thinking, everything
 - **開發工具** - GitHub, Puppeteer, Code Runner, Kubernetes
 - **雲端服務** - Heroku, Supabase, Alchemy, HubSpot
@@ -36,6 +36,33 @@
   - UI元素分析 ✅
 - **回退機制**: 所有服務100%覆蓋測試
 - **企業部署**: 完整的MCP配置指南
+
+## 🤖 **Ollama GPT 本地引擎整合**
+
+### 🚀 **本地 AI 引擎配置完成**
+- **模型支持**: gpt-oss:20b (13GB) 本地運行 ✅
+- **API 服務**: http://localhost:11434 完整可用 ✅
+- **中文完美支持**: 繁體中文回應流暢自然 ✅
+- **配置驗證**: 所有功能測試100%通過 ✅
+
+### 🔧 **完整配置檔案系統**
+- **`ollama-gpt-config.json`** - 引擎核心配置檔案
+- **`test-ollama-gpt-engine.js`** - 完整測試和驗證腳本
+- **`ollama-使用範例.js`** - 互動式使用範例程式
+- **`OLLAMA_GPT_使用指南.md`** - 詳細使用文檔和指南
+
+### 💬 **互動式使用模式**
+- **聊天模式** - 即時對話和問答互動
+- **批量處理** - 自動化任務批次執行
+- **程式碼生成** - 智能代碼生成和最佳化
+- **翻譯服務** - 多語言翻譯功能
+- **API 測試** - 完整的連接測試工具
+
+### 🔒 **本地運行優勢**
+- **完全離線** - 無需網際網路連接，保護隱私
+- **無限制使用** - 沒有 API 調用次數限制
+- **自主控制** - 完全掌控模型和數據處理
+- **高效能** - 20B 參數模型，專業級回應品質
 
 ## �📍 Phase 2 - 智能自動化功能
 
@@ -112,6 +139,14 @@
 - 🌐 **第三方服務器支持** - Notion、Sentry、Supabase、Browser
 - 📚 **17個推薦服務器** - 完整的MCP生態系統清單
 - 🏢 **企業級配置** - 生產環境部署指南
+
+### Ollama GPT 本地引擎 🤖
+- 🚀 **本地AI引擎** - gpt-oss:20b 模型完整配置
+- 💬 **互動式聊天** - 即時對話和智能問答
+- 🔧 **程式碼生成** - AI 驅動的代碼生成和優化
+- 🌍 **多語言翻譯** - 繁體中文完美支援
+- 🔒 **隱私保護** - 完全離線運行，數據安全
+- ⚡ **無限制使用** - 沒有API調用限制
 
 ## 📦 安裝
 
@@ -200,6 +235,30 @@ mursfoto mcp configure           # 配置 MCP 服務器
 mursfoto mcp recommend           # 推薦 MCP 服務器
 ```
 
+#### `node ollama-使用範例.js`
+🤖 Ollama GPT 本地引擎使用
+
+**功能模式:**
+```bash
+# 互動式使用範例
+node ollama-使用範例.js
+
+# 選項菜單:
+# 1. 💬 互動式聊天
+# 2. 📝 批量處理範例
+# 3. 💻 程式碼生成範例
+# 4. 🌍 翻譯服務範例
+# 5. 🧪 測試 API 連接
+
+# 測試引擎配置
+node test-ollama-gpt-engine.js
+
+# 直接 API 調用
+curl -X POST http://localhost:11434/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{"model": "gpt-oss:20b", "prompt": "你好", "stream": false}'
+```
+
 ### Phase 1-3 命令 (完整保留)
 
 #### `mursfoto create [name]`
@@ -226,7 +285,27 @@ mursfoto mcp recommend           # 推薦 MCP 服務器
 
 ## 📝 更新日誌
 
-### v3.2.0 (最新) - Phase 4: MCP 生態系統整合
+### v3.3.0 (最新) - Ollama GPT 本地引擎整合
+- 🤖 **Ollama GPT 本地引擎** - 完整的本地AI引擎配置和整合
+  - gpt-oss:20b (13GB) 模型支持 ✅
+  - http://localhost:11434 API服務 ✅
+  - 繁體中文完美支援 ✅
+  - 所有功能100%測試通過 ✅
+- 💬 **互動式使用系統** - 5種使用模式完整實現
+  - 即時聊天模式
+  - 批量處理功能
+  - 程式碼生成服務
+  - 多語言翻譯
+  - API連接測試
+- 🔧 **完整配置檔案系統** - 4個核心配置檔案
+  - ollama-gpt-config.json - 引擎配置
+  - test-ollama-gpt-engine.js - 測試腳本
+  - ollama-使用範例.js - 互動式範例
+  - OLLAMA_GPT_使用指南.md - 完整文檔
+- 🔒 **本地隱私保護** - 完全離線運行，無限制使用
+- 📚 **詳細使用指南** - 包含多種程式語言整合範例
+
+### v3.2.0 - Phase 4: MCP 生態系統整合
 - 🔌 **MCPManager 統一管理器** - 支持10個MCP服務的統一管理接口
 - 🔄 **完整回退機制** - 在任何環境都能穩定運作，100%兼容性保證
 - 🖼️ **Vision MCP 實際可用** - 在Cline中100%功能驗證通過
@@ -343,4 +422,5 @@ npm run test:coverage     # 測試覆蓋率
 - **Phase 3**: 18 個雲端命令
 - **Phase 4**: 4 個MCP命令
 - **MCP服務**: 10個統一管理 + 17個推薦服務器
-- **總計**: 46 個企業級命令 🏆
+- **Ollama GPT**: 4個配置檔案 + 5種使用模式
+- **總計**: 46 個企業級命令 + 完整本地AI引擎 🏆🤖
