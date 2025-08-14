@@ -1,0 +1,162 @@
+# {{projectName}} 企業級生產管理系統 .gitignore
+
+# 依賴項
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 環境配置
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 運行時文件
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# 作業系統生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 日誌文件
+logs/
+*.log
+
+# 備份文件
+*.backup
+*.bak
+*.tmp
+
+# 測試文件
+test-results/
+coverage-reports/
+
+# 構建輸出
+build/
+dist/
+out/
+
+# 臨時文件
+temp/
+tmp/
+
+# 資料庫文件
+*.sqlite
+*.db
+
+# 上傳文件
+uploads/
+files/
+
+# 私有配置
+config/private/
+secrets/
+
+# Zeabur 相關
+.zeabur/
+
+# Docker 相關
+Dockerfile.local
+docker-compose.override.yml
+
+# 專案特定排除
+# 如果您有任何特定於此項目的文件需要排除，請在此處添加

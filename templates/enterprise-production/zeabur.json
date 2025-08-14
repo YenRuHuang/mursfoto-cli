@@ -1,0 +1,44 @@
+{
+  "name": "{{projectNameKebab}}",
+  "description": "{{description}} - Enterprise Production Management System",
+  "framework": "node.js",
+  "buildCommand": "npm install",
+  "startCommand": "npm start",
+  "port": 8847,
+  "environment": {
+    "NODE_ENV": "production",
+    "PORT": "8847",
+    "JWT_SECRET": "{{projectNameKebab}}-production-secret-key-please-change",
+    "BCRYPT_ROUNDS": "10"
+  },
+  "domains": [],
+  "features": {
+    "healthCheck": {
+      "enabled": true,
+      "path": "/health",
+      "interval": 30
+    },
+    "autoScale": {
+      "enabled": false,
+      "minInstances": 1,
+      "maxInstances": 3
+    },
+    "cdn": {
+      "enabled": true,
+      "cache": ["*.css", "*.js", "*.png", "*.jpg", "*.ico"]
+    }
+  },
+  "resources": {
+    "memory": "512MB",
+    "cpu": "0.5",
+    "storage": "1GB"
+  },
+  "backup": {
+    "enabled": false,
+    "schedule": "0 2 * * *"
+  },
+  "logs": {
+    "retention": "7d",
+    "level": "info"
+  }
+}
