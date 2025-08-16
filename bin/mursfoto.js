@@ -41,15 +41,25 @@ program
 
 // 部署命令
 program
-  .command('deploy')
+  .command('deploy [platform]')
   .alias('d')
-  .description('🚀 部署項目到 Zeabur')
+  .description('🚀 部署項目到指定平台 (zeabur, docker)')
   .option('-e, --env <environment>', '部署環境 (dev, prod)', 'prod')
   .option('--auto-confirm', '自動確認所有操作', false)
-  .action(wrapCommand('deploy', async (options) => {
-    const { deployProject } = require('../lib/commands/deploy')
-    await deployProject(options)
-  }, { command: 'deploy', environment: 'options.env' }))
+  .option('--project-name <name>', '指定項目名稱')
+  .option('--plan <plan>', 'Zeabur 方案 (hobby, pro)', 'hobby')
+  .option('--open', '部署完成後自動開啟瀏覽器', true)
+  .action(wrapCommand('deploy', async (platform, options) => {
+    const { deployProject, deployToZeabur } = require('../lib/commands/deploy')
+
+    // 根據平台選擇對應的部署函數
+    if (platform === 'zeabur') {
+      await deployToZeabur(options)
+    } else {
+      // 預設或其他平台使用一般部署流程
+      await deployProject({ ...options, platform })
+    }
+  }, { command: 'deploy', platform: 'platform', environment: 'options.env' }))
 
 // 狀態檢查命令
 program
@@ -119,6 +129,74 @@ templateCommand
     await templateInfo(templateName)
   })
 
+// 設置命令
+program
+  .command('setup')
+  .description('🔧 開發環境設置')
+  .argument('<action>', '操作類型 (uv, check, remove)')
+  .option('--path <path>', '指定目標路徑', '.')
+  .option('--force', '強制覆蓋現有配置', false)
+  .option('--project-name <name>', '指定專案名稱')
+  .option('--verbose', '顯示詳細輸出', false)
+  .action(async (action, options) => {
+    const SetupCommand = require('../lib/commands/setup')
+    const setup = new SetupCommand()
+    await setup.execute(action, options)
+  })
+
+// 輸出風格命令
+const styleCommand = program
+  .command('style')
+  .alias('st')
+  .description('🎨 管理 AI 輸出風格 (Claude Code Output Styles)')
+
+styleCommand
+  .command('list')
+  .description('列出所有可用的輸出風格')
+  .action(async () => {
+    const StyleCommand = require('../lib/commands/style')
+    const style = new StyleCommand()
+    await style.listStyles()
+  })
+
+styleCommand
+  .command('current')
+  .description('顯示當前使用的輸出風格')
+  .action(async () => {
+    const StyleCommand = require('../lib/commands/style')
+    const style = new StyleCommand()
+    await style.showCurrentStyle()
+  })
+
+styleCommand
+  .command('set')
+  .description('設定輸出風格')
+  .argument('<style-name>', '風格名稱')
+  .action(async (styleName) => {
+    const StyleCommand = require('../lib/commands/style')
+    const style = new StyleCommand()
+    await style.setStyle(styleName)
+  })
+
+styleCommand
+  .command('info')
+  .description('顯示風格詳細資訊')
+  .argument('<style-name>', '風格名稱')
+  .action(async (styleName) => {
+    const StyleCommand = require('../lib/commands/style')
+    const style = new StyleCommand()
+    await style.showStyleInfo(styleName)
+  })
+
+styleCommand
+  .command('reset')
+  .description('重置為預設風格')
+  .action(async () => {
+    const StyleCommand = require('../lib/commands/style')
+    const style = new StyleCommand()
+    await style.resetStyle()
+  })
+
 // 配置命令
 const configCommand = program
   .command('config')
@@ -158,6 +236,18 @@ program
   .action(async () => {
     const { runDoctor } = require('../lib/commands/doctor')
     await runDoctor()
+  })
+
+// GUI 監控中心命令
+program
+  .command('gui')
+  .description('🖥️ 啟動 GUI 監控中心')
+  .option('-p, --port <port>', '指定埠號', '12580')
+  .option('-h, --host <host>', '指定主機', 'localhost')
+  .action(async (options) => {
+    const GUICommand = require('../lib/commands/gui')
+    const gui = new GUICommand()
+    await gui.execute(options)
   })
 
 // smart 命令 - 🚀 階段 2 智能化功能

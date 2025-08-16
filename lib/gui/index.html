@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖥️ mursfoto-cli AI 服務監控中心</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥️</text></svg>">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🖥️</span>
+                <h1>mursfoto-cli</h1>
+                <span class="subtitle">AI 服務監控中心</span>
+            </div>
+            <div class="status-indicator" id="connection-status">
+                <div class="dot"></div>
+                <span>連接中...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Services Status Grid -->
+            <section class="section">
+                <h2>🔧 AI 服務狀態</h2>
+                <div class="services-grid" id="services-grid">
+                    <!-- Services will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- System Stats -->
+            <section class="section">
+                <h2>📊 系統統計</h2>
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Stats will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Configuration -->
+            <section class="section">
+                <h2>⚙️ 配置資訊</h2>
+                <div class="config-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="environment">環境變數</button>
+                        <button class="tab-button" data-tab="ai-router">AI 路由器</button>
+                        <button class="tab-button" data-tab="gui">GUI 設定</button>
+                    </div>
+                    <div class="tab-contents">
+                        <div class="tab-content active" id="environment-tab">
+                            <!-- Environment config will be populated -->
+                        </div>
+                        <div class="tab-content" id="ai-router-tab">
+                            <!-- AI Router config will be populated -->
+                        </div>
+                        <div class="tab-content" id="gui-tab">
+                            <!-- GUI config will be populated -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Test Panel -->
+            <section class="section">
+                <h2>🧪 服務測試</h2>
+                <div class="test-panel">
+                    <div class="test-form">
+                        <select id="service-select">
+                            <option value="auto">自動路由</option>
+                            <option value="lmstudio">LM Studio</option>
+                            <option value="ollama">Ollama</option>
+                            <option value="cline">Cline API</option>
+                            <option value="claude">Claude API</option>
+                        </select>
+                        <input type="text" id="test-prompt" placeholder="輸入測試訊息..." value="你好！請介紹一下你自己。">
+                        <button id="test-button">🚀 測試</button>
+                    </div>
+                    <div class="test-results" id="test-results">
+                        <!-- Test results will appear here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Information -->
+            <section class="section">
+                <h2>💻 系統資訊</h2>
+                <div class="system-info" id="system-info">
+                    <!-- System info will be populated -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>載入中...</p>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container">
+        <!-- Toasts will appear here -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
