@@ -1,0 +1,29 @@
+{
+  "name": "{{projectName}}-n8n",
+  "version": "1.0.0",
+  "description": "{{description}} - N8N Workflow Automation",
+  "main": "server.js",
+  "scripts": {
+    "start": "n8n start",
+    "dev": "n8n start --tunnel",
+    "build": "echo 'N8N workflows are pre-built'",
+    "test": "echo 'N8N workflow testing not implemented'"
+  },
+  "keywords": [
+    "n8n",
+    "automation",
+    "workflow",
+    "{{projectName}}"
+  ],
+  "author": "{{author}}",
+  "license": "MIT",
+  "dependencies": {
+    "n8n": "^1.0.0"
+  },
+  "devDependencies": {},
+  "n8n": {
+    "settings": {
+      "generic.timezone": "Asia/Taipei"
+    }
+  }
+}

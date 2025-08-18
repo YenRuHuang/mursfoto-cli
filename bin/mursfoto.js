@@ -6,7 +6,7 @@ const figlet = require('figlet')
 const pkg = require('../package.json')
 
 // 引入命令
-const createCommand = require('../lib/commands/create')
+const { createProject } = require('../lib/commands/create')
 
 // 顯示歡迎信息
 function showWelcome() {
@@ -30,16 +30,27 @@ program
 program
   .command('create [name]')
   .description('創建新的 Mursfoto 服務項目')
-  .option('-t, --template <template>', '使用指定模板 (minimal, enterprise-production)')
+  .option('-t, --template <template>', '使用指定模板 (minimal, enterprise-production, n8n)')
   .option('-d, --directory <dir>', '指定創建目錄')
+  .option('-f, --force', '強制覆蓋已存在的目錄')
   .option('--no-install', '跳過 npm install')
   .option('--no-git', '跳過 Git 初始化')
+  .option('--overwrite', '覆蓋已存在的目錄（非交互式）')
+  .option('--no-overwrite', '不覆蓋已存在的目錄（非交互式）')
   .action(async (name, options) => {
     showWelcome()
     try {
-      await createCommand(name, options)
+      await createProject(name, options)
     } catch (error) {
       console.error(chalk.red('❌ 創建項目失敗:'), error.message)
+      
+      // 提供建議
+      if (error.message.includes('項目名稱作為命令行參數')) {
+        console.log(chalk.cyan('\n💡 建議使用方式:'))
+        console.log(chalk.cyan('  mursfoto create my-project --template minimal'))
+        console.log(chalk.cyan('  mursfoto create my-app --template enterprise-production'))
+      }
+      
       process.exit(1)
     }
   })

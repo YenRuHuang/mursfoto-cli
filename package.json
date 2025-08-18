@@ -9,14 +9,30 @@
   },
   "scripts": {
     "start": "node bin/mursfoto.js",
-    "test": "echo 'Tests will be added later'",
-    "build": "echo '✅ CLI build completed'"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "build": "echo '✅ CLI build completed'",
+    "prepublishOnly": "npm test",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "mursfoto",
     "cli",
     "automation",
-    "productivity"
+    "productivity",
+    "ai",
+    "development",
+    "template",
+    "generator",
+    "enterprise",
+    "microservices",
+    "api-gateway",
+    "n8n",
+    "workflow",
+    "devtools",
+    "boilerplate",
+    "scaffold"
   ],
   "author": "Mursfoto Team",
   "license": "MIT",
@@ -24,19 +40,30 @@
     "type": "git",
     "url": "https://github.com/YenRuHuang/mursfoto-cli.git"
   },
+  "bugs": {
+    "url": "https://github.com/YenRuHuang/mursfoto-cli/issues"
+  },
+  "homepage": "https://github.com/YenRuHuang/mursfoto-cli#readme",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
   },
   "dependencies": {
+    "axios": "^1.6.0",
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "figlet": "^1.7.0",
     "fs-extra": "^11.1.1",
     "inquirer": "^8.2.6",
     "handlebars": "^4.7.8",
     "simple-git": "^3.20.0",
+    "socket.io": "^4.7.5",
     "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   },
   "files": [
     "bin/",
@@ -50,5 +77,15 @@
   "preferGlobal": true,
   "publishConfig": {
     "access": "public"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "lib/**/*.js",
+      "bin/**/*.js",
+      "!lib/**/*.test.js",
+      "!**/node_modules/**"
+    ]
   }
 }

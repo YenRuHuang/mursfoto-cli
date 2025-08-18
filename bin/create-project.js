@@ -2,7 +2,7 @@
 
 const { program } = require('commander')
 const chalk = require('chalk')
-const createCommand = require('../lib/commands/create')
+const { createProject } = require('../lib/commands/create')
 const pkg = require('../package.json')
 
 // 設定程序信息
@@ -20,7 +20,7 @@ program
     console.log(chalk.gray(`版本: ${pkg.version}\n`))
     
     try {
-      await createCommand(projectName, options)
+      await createProject(projectName, options)
       
       console.log(chalk.green('\n🎉 項目創建成功！'))
       console.log(chalk.yellow('📝 接下來的步驟:'))
