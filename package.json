@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node bin/mursfoto.js",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "eslint .",
@@ -29,7 +29,11 @@
     "release:major": "node scripts/release.js major",
     "release": "node scripts/release.js",
     "changelog": "node scripts/generate-changelog.js",
-    "stats": "node scripts/npm-stats.js"
+    "stats": "node scripts/npm-stats.js",
+    "test:unit": "jest test/unit",
+    "test:integration": "jest test/integration",
+    "test:e2e": "jest test/e2e",
+    "test:auto": "node ../mursfoto-automated-testing-engine.js --run"
   },
   "keywords": [
     "mursfoto",

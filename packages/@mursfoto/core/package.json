@@ -1,0 +1,44 @@
+{
+  "name": "@mursfoto/core",
+  "version": "1.0.0",
+  "description": "MursPhoto CLI核心包 - 提供插件系統和核心功能",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./plugin-manager": "./lib/PluginManager.js",
+    "./command-registry": "./lib/CommandRegistry.js",
+    "./utils": "./lib/utils/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mursfoto",
+    "cli",
+    "core",
+    "plugin-system",
+    "modular-architecture"
+  ],
+  "author": "YenRuHuang",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "chalk": "^5.0.0",
+    "inquirer": "^9.0.0"
+  },
+  "peerDependencies": {
+    "node": ">=16.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YenRuHuang/mursfoto-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YenRuHuang/mursfoto-cli/issues"
+  },
+  "homepage": "https://github.com/YenRuHuang/mursfoto-cli#readme"
+}

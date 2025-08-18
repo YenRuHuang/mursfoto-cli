@@ -1,0 +1,36 @@
+name: Mursfoto CLI 自動化測試
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 使用 Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: 安裝依賴
+      run: npm ci
+    
+    - name: 執行測試
+      run: npm test
+    
+    - name: 生成覆蓋率報告
+      run: npm run test:coverage
+    
+    - name: 上傳覆蓋率報告
+      uses: codecov/codecov-action@v3

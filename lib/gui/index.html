@@ -9,6 +9,9 @@
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
+    <!-- 跳轉連結 -->
+    <a href="#main-content" class="skip-link">跳到主要內容</a>
+    <a href="#services-grid" class="skip-link">跳到服務狀態</a>
     <div class="container">
         <!-- Header -->
         <header class="header">
@@ -17,7 +20,7 @@
                 <h1>mursfoto-cli</h1>
                 <span class="subtitle">AI 服務監控中心</span>
             </div>
-            <div class="status-indicator" id="connection-status">
+            <div class="status-indicator" id="connection-status" role="status" aria-live="polite" aria-label="連接狀態">
                 <div class="dot"></div>
                 <span>連接中...</span>
             </div>
@@ -28,15 +31,15 @@
             <!-- Services Status Grid -->
             <section class="section">
                 <h2>🔧 AI 服務狀態</h2>
-                <div class="services-grid" id="services-grid">
+                <div class="services-grid" id="services-grid" role="grid" aria-label="AI 服務狀態網格">
                     <!-- Services will be populated dynamically -->
                 </div>
-            </section>
+            <div id="test-help" class="sr-only">輸入要測試的訊息，然後按測試按鈕或 Enter 鍵執行</div></section>
 
             <!-- System Stats -->
             <section class="section">
                 <h2>📊 系統統計</h2>
-                <div class="stats-grid" id="stats-grid">
+                <div class="stats-grid" id="stats-grid" role="grid" aria-label="系統統計資料網格">
                     <!-- Stats will be populated dynamically -->
                 </div>
             </section>
@@ -45,19 +48,19 @@
             <section class="section">
                 <h2>⚙️ 配置資訊</h2>
                 <div class="config-tabs">
-                    <div class="tab-buttons">
+                    <div class="tab-buttons" role="tablist" aria-label="配置選項">
                         <button class="tab-button active" data-tab="environment">環境變數</button>
-                        <button class="tab-button" data-tab="ai-router">AI 路由器</button>
-                        <button class="tab-button" data-tab="gui">GUI 設定</button>
+                        <button class="tab-button" role="tab" tabindex="0" data-tab="ai-router">AI 路由器</button>
+                        <button class="tab-button" role="tab" tabindex="0" data-tab="gui">GUI 設定</button>
                     </div>
                     <div class="tab-contents">
                         <div class="tab-content active" id="environment-tab">
                             <!-- Environment config will be populated -->
                         </div>
-                        <div class="tab-content" id="ai-router-tab">
+                        <div class="tab-content" role="tabpanel" id="ai-router-tab">
                             <!-- AI Router config will be populated -->
                         </div>
-                        <div class="tab-content" id="gui-tab">
+                        <div class="tab-content" role="tabpanel" id="gui-tab">
                             <!-- GUI config will be populated -->
                         </div>
                     </div>
@@ -69,15 +72,15 @@
                 <h2>🧪 服務測試</h2>
                 <div class="test-panel">
                     <div class="test-form">
-                        <select id="service-select">
+                        <select id="service-select" aria-label="選擇 AI 服務">
                             <option value="auto">自動路由</option>
                             <option value="lmstudio">LM Studio</option>
                             <option value="ollama">Ollama</option>
                             <option value="cline">Cline API</option>
                             <option value="claude">Claude API</option>
                         </select>
-                        <input type="text" id="test-prompt" placeholder="輸入測試訊息..." value="你好！請介紹一下你自己。">
-                        <button id="test-button">🚀 測試</button>
+                        <input type="text" id="test-prompt" aria-label="測試訊息輸入" aria-describedby="test-help" placeholder="輸入測試訊息..." value="你好！請介紹一下你自己。">
+                        <button id="test-button" aria-label="執行服務測試">🚀 測試</button>
                     </div>
                     <div class="test-results" id="test-results">
                         <!-- Test results will appear here -->
