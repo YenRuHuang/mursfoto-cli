@@ -1,6 +1,6 @@
 # 🚀 Mursfoto CLI
 
-> **Mursfoto AutoDev Factory 4.1** - 整合進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur + Claude Code AI
+> **Mursfoto AutoDev Factory 4.3** - Claude Code AI 代理深度整合 + 進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur
 
 [![npm version](https://badge.fury.io/js/%40mursfoto%2Fcli.svg)](https://www.npmjs.com/package/@mursfoto/cli)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -18,16 +18,16 @@
 - 🚀 **一鍵部署** - 支援 Zeabur 等雲端平台
 - 🧪 **完整測試** - 32 個測試確保代碼品質
 
-### 🎯 NEW v4.1 進階功能 (基於成功專案最佳實踐)
+### 🎯 NEW v4.3 進階功能 (基於成功專案最佳實踐)
 
 - 📊 **SmartMonitor** - 來自 PixelForge Studio，即時效能監控與自動擴展建議
 - 📝 **EnterpriseLogger** - 來自 AI Freelancer Tools，企業級日誌系統與安全事件記錄  
 - 🎯 **SmartRouter** - 來自 PixelForge Studio，智能負載平衡與成本優化路由
 - 🗄️ **MySQL + Zeabur 整合** - 完整資料庫服務管理與一鍵部署
-- 🤖 **Claude Code AI 深度整合** - 內建 AI 代理指導與繁體中文支援
 - 🌐 **完整 API Gateway 系統** - 整合您現有的完整 API (Auth/Security/Proxy)
-- 🤖 **智能 AI 代理複製** - 自動複製您的 subagents 配置到新專案
-- 🎨 **智能輸出風格** - 根據專案類型自動推薦最適合的 Claude Code 輸出風格
+- 🤖 **Claude Code AI 代理深度整合** - 自動複製您的 4 個專業 AI 代理到每個新專案
+- 🎨 **智能輸出風格推薦** - API Gateway→風格2, Web→風格3, 微服務→風格5 自動適配
+- ⚙️ **專案特定配置** - 每個專案獨立的 .claude 目錄與優化設定
 
 ## 🛠️ 安裝
 
@@ -332,7 +332,7 @@ cd my-enterprise-app
 
 ## 📊 狀態
 
-- **版本**: 4.0.0
+- **版本**: 4.3.0
 - **狀態**: 生產就緒 ✅  
 - **測試覆蓋**: 100% ✅
 - **文檔**: 完整 ✅
