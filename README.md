@@ -25,6 +25,7 @@
 - 🎯 **SmartRouter** - 來自 PixelForge Studio，智能負載平衡與成本優化路由
 - 🗄️ **MySQL + Zeabur 整合** - 完整資料庫服務管理與一鍵部署
 - 🤖 **Claude Code AI 深度整合** - 內建 AI 代理指導與繁體中文支援
+- 🌐 **完整 API Gateway 系統** - 整合您現有的完整 API (Auth/Security/Proxy)
 
 ## 🛠️ 安裝
 
@@ -58,6 +59,9 @@ mursfoto create my-workflow --template n8n
 # 基本 API 服務 (包含 MySQL + Zeabur + Claude Code AI)
 node lib/services/MursfotoProjectTemplate.js create my-api
 
+# 🌐 完整 API Gateway 系統 (整合您現有的 API 設定)
+node lib/services/MursfotoProjectTemplate.js create my-gateway api-gateway
+
 # 啟用智能監控
 node lib/services/MursfotoProjectTemplate.js create monitored-service api --smart-monitor
 
@@ -69,6 +73,9 @@ node lib/services/MursfotoProjectTemplate.js create balanced-api api --smart-rou
 
 # 啟用所有進階功能 🚀
 node lib/services/MursfotoProjectTemplate.js create enterprise-solution api --all-features
+
+# API Gateway + 全進階功能
+node lib/services/MursfotoProjectTemplate.js create ultimate-gateway api-gateway --all-features
 ```
 
 ### 系統檢查

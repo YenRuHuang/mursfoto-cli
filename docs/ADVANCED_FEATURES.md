@@ -1,6 +1,6 @@
 # Mursfoto 進階功能整合指南
 
-基於成功專案 `pixelforge-studio-main` 和 `ai-freelancer-tools-main` 的最佳實踐。
+基於成功專案 `pixelforge-studio-main`、`ai-freelancer-tools-main` 和 `mursfoto-api-gateway-main` 的最佳實踐。
 
 ## 🎯 可用進階功能
 
@@ -115,11 +115,68 @@ app.get('/admin/routing-stats', (req, res) => {
 });
 ```
 
+### 4. API Gateway - 完整 API 閘道系統
+**來源**: mursfoto-api-gateway-main 的完整實作
+**功能**:
+- 完整的認證與 Token 管理系統
+- 企業級安全監控與 IP 封鎖
+- 多 API 代理 (Claude, Gemini, Stripe, 自定義服務)
+- 自動重試與故障轉移
+- 請求速率限制與配額管理
+
+**使用方式**:
+```bash
+node mursfoto-project-template.js create my-gateway api-gateway
+```
+
+**內建 API 端點**:
+```javascript
+// 認證管理
+POST   /api/auth/tokens          # 生成新 Token
+GET    /api/auth/tokens          # 列出所有 Token
+DELETE /api/auth/tokens/:id      # 撤銷 Token
+GET    /api/auth/validate        # 驗證 Token
+
+// 安全監控
+GET    /api/security/stats       # 安全統計
+GET    /api/security/alerts      # 安全告警
+POST   /api/security/block-ip    # 封鎖 IP
+GET    /api/security/blocked-ips # 被封鎖的 IP 列表
+
+// API 代理
+GET    /api/claude/*            # Claude API 代理
+GET    /api/gemini/*            # Gemini API 代理  
+GET    /api/stripe/*            # Stripe API 代理
+GET    /api/tw-life-formula/*   # 您的自定義服務代理
+```
+
+**環境配置**:
+```env
+# API Keys
+ANTHROPIC_API_KEY=your-claude-api-key
+GEMINI_API_KEY=your-gemini-api-key
+STRIPE_SECRET_KEY=your-stripe-key
+
+# 管理員密鑰
+ADMIN_API_KEY=your-admin-key
+
+# 服務 URLs
+TW_LIFE_FORMULA_URL=http://localhost:3001
+
+# 安全設定
+DISCORD_WEBHOOK_URL=your-discord-webhook
+SENTRY_DSN=your-sentry-dsn
+```
+
 ## ✨ 全功能整合
 
 啟用所有進階功能：
 ```bash
+# 基本服務 + 所有進階功能
 node mursfoto-project-template.js create enterprise-app api --all-features
+
+# API Gateway + 所有進階功能 (完整企業級解決方案)
+node mursfoto-project-template.js create ultimate-gateway api-gateway --all-features
 ```
 
 ## 📁 專案結構
