@@ -1,0 +1,96 @@
+{
+  "name": "mursfoto-service-with-database",
+  "services": [
+    {
+      "name": "{{SERVICE_NAME}}",
+      "buildCommand": "npm install && npm run db:setup",
+      "startCommand": "npm start",
+      "environment": "node",
+      "nodeVersion": "18",
+      "rootDirectory": "./",
+      "outputDirectory": "./",
+      "healthCheck": {
+        "path": "/api/health",
+        "timeout": 30,
+        "retries": 3
+      },
+      "envVars": [
+        "PORT",
+        "NODE_ENV",
+        "JWT_SECRET",
+        "MURSFOTO_SERVICE_NAME",
+        "DB_HOST",
+        "DB_USER", 
+        "DB_PASSWORD",
+        "DB_NAME",
+        "DB_PORT",
+        "DB_CONNECTION_LIMIT",
+        "DB_SSL",
+        "REDIS_HOST",
+        "REDIS_PORT",
+        "REDIS_PASSWORD",
+        "API_RATE_LIMIT",
+        "LOG_LEVEL",
+        "ENABLE_REQUEST_LOGGING",
+        "CORS_ORIGINS",
+        "HEALTH_CHECK_TIMEOUT"
+      ],
+      "ports": [
+        {
+          "containerPort": 8080,
+          "protocol": "HTTP"
+        }
+      ],
+      "resources": {
+        "memory": "512MB",
+        "cpu": "0.5"
+      }
+    }
+  ],
+  "addons": [
+    {
+      "type": "mysql",
+      "name": "{{SERVICE_NAME}}-db",
+      "version": "8.0",
+      "config": {
+        "charset": "utf8mb4",
+        "collation": "utf8mb4_unicode_ci",
+        "timezone": "+08:00"
+      }
+    },
+    {
+      "type": "redis",
+      "name": "{{SERVICE_NAME}}-cache",
+      "version": "7.0",
+      "config": {
+        "maxMemoryPolicy": "allkeys-lru"
+      }
+    }
+  ],
+  "volumes": [
+    {
+      "name": "logs",
+      "mountPath": "/app/logs",
+      "size": "1GB"
+    }
+  ],
+  "deployment": {
+    "strategy": "blue-green",
+    "healthCheckGracePeriod": 60,
+    "hooks": {
+      "postDeploy": [
+        "npm run db:migrate",
+        "npm run db:seed"
+      ]
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics": [
+      "cpu",
+      "memory",
+      "network",
+      "database_connections"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "@mursfoto/cli",
-  "version": "4.0.0",
-  "description": "Mursfoto AutoDev Factory 4.0 - 統一架構 + AI 驅動的智慧自動化開發工具",
+  "version": "4.1.0",
+  "description": "Mursfoto AutoDev Factory 4.1 - 整合進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur + Claude Code AI",
   "main": "bin/mursfoto.js",
   "bin": {
     "mursfoto": "./bin/mursfoto.js",
@@ -28,12 +28,19 @@
     "generator",
     "enterprise",
     "microservices",
-    "api-gateway",
+    "api-gateway", 
     "n8n",
     "workflow",
     "devtools",
     "boilerplate",
-    "scaffold"
+    "scaffold",
+    "mysql",
+    "zeabur",
+    "smart-monitor",
+    "enterprise-logger",
+    "smart-router",
+    "pixelforge",
+    "ai-freelancer-tools"
   ],
   "author": "Mursfoto Team",
   "license": "MIT",
@@ -69,10 +76,9 @@
   "files": [
     "bin/",
     "lib/",
-    "templates/",
     "docs/",
     "README.md",
-    "LICENSE",
+    "LICENSE", 
     "CHANGELOG.md"
   ],
   "preferGlobal": true,

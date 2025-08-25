@@ -1,6 +1,6 @@
 # 🚀 Mursfoto CLI
 
-> **Mursfoto AutoDev Factory 4.0** - 統一架構 + AI 驅動的智慧自動化開發工具
+> **Mursfoto AutoDev Factory 4.1** - 整合進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur + Claude Code AI
 
 [![npm version](https://badge.fury.io/js/%40mursfoto%2Fcli.svg)](https://www.npmjs.com/package/@mursfoto/cli)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -17,6 +17,14 @@
 - 📊 **即時監控 GUI** - Web 介面系統監控
 - 🚀 **一鍵部署** - 支援 Zeabur 等雲端平台
 - 🧪 **完整測試** - 32 個測試確保代碼品質
+
+### 🎯 NEW v4.1 進階功能 (基於成功專案最佳實踐)
+
+- 📊 **SmartMonitor** - 來自 PixelForge Studio，即時效能監控與自動擴展建議
+- 📝 **EnterpriseLogger** - 來自 AI Freelancer Tools，企業級日誌系統與安全事件記錄  
+- 🎯 **SmartRouter** - 來自 PixelForge Studio，智能負載平衡與成本優化路由
+- 🗄️ **MySQL + Zeabur 整合** - 完整資料庫服務管理與一鍵部署
+- 🤖 **Claude Code AI 深度整合** - 內建 AI 代理指導與繁體中文支援
 
 ## 🛠️ 安裝
 
@@ -43,6 +51,24 @@ mursfoto create my-app --template enterprise-production
 
 # N8N 自動化項目
 mursfoto create my-workflow --template n8n
+```
+
+### 🎯 NEW! 創建具備進階功能的項目
+```bash
+# 基本 API 服務 (包含 MySQL + Zeabur + Claude Code AI)
+node lib/services/MursfotoProjectTemplate.js create my-api
+
+# 啟用智能監控
+node lib/services/MursfotoProjectTemplate.js create monitored-service api --smart-monitor
+
+# 啟用企業級日誌
+node lib/services/MursfotoProjectTemplate.js create secure-app api --enterprise-logger
+
+# 啟用智能路由
+node lib/services/MursfotoProjectTemplate.js create balanced-api api --smart-router
+
+# 啟用所有進階功能 🚀
+node lib/services/MursfotoProjectTemplate.js create enterprise-solution api --all-features
 ```
 
 ### 系統檢查
