@@ -5,6 +5,7 @@
   "main": "bin/mursfoto.js",
   "bin": {
     "mursfoto": "./bin/mursfoto.js",
+    "mursfoto-service": "./bin/mursfoto-service",
     "@mursfoto/create-project": "./bin/create-project.js"
   },
   "scripts": {

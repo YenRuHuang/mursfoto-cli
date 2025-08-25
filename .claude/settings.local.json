@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "\"Edit\"",
+      "\"Glob\"",
+      "\"Grep\"]",
+      "\"Read\"",
+      "\"Write\"",
+      "[\"Bash\""
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

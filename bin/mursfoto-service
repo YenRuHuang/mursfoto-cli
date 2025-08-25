@@ -1,0 +1,149 @@
+#!/usr/bin/env node
+
+/**
+ * Mursfoto Service Management CLI
+ * 統一的服務管理命令介面
+ */
+
+const path = require('path');
+
+// 根據命令動態載入對應的服務
+function main() {
+  const [,, command, ...args] = process.argv;
+
+  try {
+    switch (command) {
+      case 'create':
+      case 'new':
+        // 使用專案模板生成器
+        const ProjectTemplate = require('../lib/services/MursfotoProjectTemplate.js');
+        const template = new ProjectTemplate();
+        const [name, type] = args;
+        if (!name) {
+          console.error('Usage: mursfoto-service create <name> [type]');
+          return;
+        }
+        template.createProject(name, type || 'api');
+        break;
+
+      case 'register':
+      case 'add':
+        // 註冊現有專案
+        const ServiceManager = require('../lib/services/MursfotoServiceManager.cjs');
+        const manager = new ServiceManager();
+        const [serviceName, serviceType] = args;
+        if (!serviceName) {
+          console.error('Usage: mursfoto-service register <name> [type]');
+          return;
+        }
+        manager.registerService(serviceName, { type: serviceType || 'api' });
+        manager.generateEnvFile(serviceName);
+        break;
+
+      case 'list':
+      case 'ls':
+        // 列出所有服務
+        const listManager = require('../lib/services/MursfotoServiceManager.cjs');
+        const lm = new listManager();
+        lm.listServices();
+        break;
+
+      case 'start':
+        // 啟動服務
+        const startManager = require('../lib/services/MursfotoServiceManager.cjs');
+        const sm = new startManager();
+        const [startServiceName] = args;
+        if (!startServiceName) {
+          console.error('Usage: mursfoto-service start <name>');
+          return;
+        }
+        sm.startService(startServiceName);
+        break;
+
+      case 'deploy':
+        // 部署服務
+        const Deployer = require('../lib/services/MursfotoDeployer.cjs');
+        const deployer = new Deployer();
+        deployer.deploy();
+        break;
+
+      case 'setup':
+        // 設置現有專案
+        const setupDeployer = require('../lib/services/MursfotoDeployer.cjs');
+        const sd = new setupDeployer();
+        sd.setupExistingProject();
+        break;
+
+      case 'config':
+        // 顯示配置
+        const configManager = require('../lib/services/MursfotoServiceManager.cjs');
+        const cm = new configManager();
+        const [configServiceName] = args;
+        if (!configServiceName) {
+          console.error('Usage: mursfoto-service config <name>');
+          return;
+        }
+        const config = cm.generateServiceConfig(configServiceName);
+        console.log('🔧 Zeabur Environment Variables:');
+        console.log('─'.repeat(40));
+        Object.entries(config).forEach(([key, value]) => {
+          console.log(`${key}=${value}`);
+        });
+        break;
+
+      case 'env':
+        // 生成 .env 文件
+        const envManager = require('../lib/services/MursfotoServiceManager.cjs');
+        const em = new envManager();
+        const [envServiceName] = args;
+        if (!envServiceName) {
+          console.error('Usage: mursfoto-service env <name>');
+          return;
+        }
+        em.generateEnvFile(envServiceName);
+        break;
+
+      case 'help':
+      case '--help':
+      case '-h':
+      default:
+        console.log('🚀 Mursfoto Service Management CLI');
+        console.log('');
+        console.log('Usage:');
+        console.log('  mursfoto-service <command> [options]');
+        console.log('');
+        console.log('Commands:');
+        console.log('  create <name> [type]    - Create new project with auto port assignment');
+        console.log('  register <name> [type]  - Register existing project as Mursfoto service');
+        console.log('  list                    - List all registered services');
+        console.log('  start <name>           - Start a service');
+        console.log('  deploy                 - Deploy current project to GitHub + Zeabur');
+        console.log('  setup                  - Setup current project as Mursfoto service');
+        console.log('  config <name>          - Show Zeabur environment variables');
+        console.log('  env <name>             - Generate .env file');
+        console.log('  help                   - Show this help message');
+        console.log('');
+        console.log('Examples:');
+        console.log('  mursfoto-service create my-api api         # Create new API project');
+        console.log('  mursfoto-service register rental-hub api   # Register existing project');
+        console.log('  mursfoto-service list                      # Show all services');
+        console.log('  mursfoto-service start rental-hub          # Start specific service');
+        console.log('  mursfoto-service deploy                    # Deploy current project');
+        console.log('');
+        console.log('Features:');
+        console.log('  ✅ Automatic port assignment (4000, 4001, 4002...)');
+        console.log('  ✅ Service registry (~/.mursfoto/services.json)');
+        console.log('  ✅ Unified configuration management');
+        console.log('  ✅ One-click GitHub + Zeabur deployment');
+        console.log('  ✅ No more port conflicts or repeated setup');
+        break;
+    }
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    console.log('💡 Try: mursfoto-service help');
+  }
+}
+
+if (require.main === module) {
+  main();
+}
