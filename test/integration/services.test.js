@@ -114,13 +114,13 @@ describe('Mursfoto CLI 服務整合測試', () => {
         });
 
         test('minimal 模板應該存在', () => {
-            const minimalPath = path.join(__dirname, '../../templates/minimal');
+            const minimalPath = path.join(__dirname, '../../lib/templates/minimal');
             expect(fs.existsSync(minimalPath)).toBe(true);
             expect(fs.existsSync(path.join(minimalPath, 'package.json'))).toBe(true);
         });
 
         test('enterprise-production 模板應該存在', () => {
-            const enterprisePath = path.join(__dirname, '../../templates/enterprise-production');
+            const enterprisePath = path.join(__dirname, '../../lib/templates/enterprise-production');
             expect(fs.existsSync(enterprisePath)).toBe(true);
             expect(fs.existsSync(path.join(enterprisePath, 'package.json'))).toBe(true);
         });

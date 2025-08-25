@@ -16,7 +16,7 @@ function showWelcome() {
     )
   )
   console.log(chalk.yellow(`🚀 Mursfoto AutoDev Factory ${pkg.version}`))
-  console.log(chalk.gray('統一架構 + AI 驅動的智慧自動化開發工具\n'))
+  console.log(chalk.gray('Claude Code AI 代理深度整合 + 統一架構的智慧自動化開發工具\n'))
 }
 
 // 設定程序信息
