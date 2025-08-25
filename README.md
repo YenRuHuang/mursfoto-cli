@@ -26,6 +26,8 @@
 - 🗄️ **MySQL + Zeabur 整合** - 完整資料庫服務管理與一鍵部署
 - 🤖 **Claude Code AI 深度整合** - 內建 AI 代理指導與繁體中文支援
 - 🌐 **完整 API Gateway 系統** - 整合您現有的完整 API (Auth/Security/Proxy)
+- 🤖 **智能 AI 代理複製** - 自動複製您的 subagents 配置到新專案
+- 🎨 **智能輸出風格** - 根據專案類型自動推薦最適合的 Claude Code 輸出風格
 
 ## 🛠️ 安裝
 
@@ -77,6 +79,27 @@ node lib/services/MursfotoProjectTemplate.js create enterprise-solution api --al
 # API Gateway + 全進階功能
 node lib/services/MursfotoProjectTemplate.js create ultimate-gateway api-gateway --all-features
 ```
+
+## 🤖 Claude Code AI 代理整合
+
+每個新專案自動包含：
+
+### ✅ **自動複製的配置**
+- 🎯 **4個專業 AI 代理**: code-reviewer、error-debugger、prd-writer、steering-architect
+- 🎨 **繁體中文狀態列**: 5種風格可選，自動推薦適合的風格
+- ⚙️ **優化權限設定**: 自動配置最佳的工具權限
+- 📁 **專案特定配置**: 每個專案都有獨立的 `.claude` 目錄
+
+### 🎨 **智能風格推薦**
+- **API/API Gateway**: 風格2 (正式風格) - 完整資訊顯示
+- **Web 應用**: 風格3 (符號風格) - 視覺化圖示介面
+- **微服務**: 風格5 (技術風格) - 含時間戳記適合分散式開發
+
+### 🔧 **使用方式**
+創建專案後，在專案目錄中 Claude Code 會自動使用：
+- 您的自訂 AI 代理
+- 推薦的輸出風格  
+- 專案特定的設定
 
 ### 系統檢查
 ```bash
