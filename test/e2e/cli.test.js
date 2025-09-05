@@ -26,7 +26,7 @@ describe('Mursfoto CLI E2E 測試', () => {
                 encoding: 'utf8',
                 cwd: path.join(__dirname, '../..')
             });
-            expect(output.trim()).toBe('4.3.0');
+            expect(output.trim()).toBe('4.4.0');
         });
 
         test('應該顯示幫助信息', () => {
@@ -34,7 +34,7 @@ describe('Mursfoto CLI E2E 測試', () => {
                 encoding: 'utf8',
                 cwd: path.join(__dirname, '../..')
             });
-            expect(output).toContain('Claude Code AI 代理深度整合');
+            expect(output).toContain('三 AI 協作系統');
             expect(output).toContain('create');
             expect(output).toContain('doctor');
             expect(output).toContain('gui');
