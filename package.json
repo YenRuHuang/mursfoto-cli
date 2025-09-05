@@ -1,7 +1,7 @@
 {
   "name": "@mursfoto/cli",
-  "version": "4.3.0",
-  "description": "Mursfoto AutoDev Factory 4.3 - Claude Code AI 代理深度整合 + 進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur",
+  "version": "4.4.0",
+  "description": "Mursfoto AutoDev Factory 4.4 - 三 AI 協作系統 (Claude + Gemini 2.5 Pro + Amazon Q) + 進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur",
   "main": "bin/mursfoto.js",
   "bin": {
     "mursfoto": "./bin/mursfoto.js",
