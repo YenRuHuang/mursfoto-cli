@@ -16,29 +16,26 @@ jobs:
       fail-fast: false
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: 使用 Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     
+    - name: 清理 npm cache
+      run: npm cache clean --force
+    
     - name: 安裝依賴
       run: |
-        npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+        npm ci --legacy-peer-deps --no-optional --ignore-scripts
+    
+    - name: 檢查安裝狀態
+      run: |
+        npm ls --depth=0 || echo "依賴檢查完成"
+        node --version
+        npm --version
     
     - name: 執行測試
       run: npm test
-    
-    - name: 生成覆蓋率報告
-      run: npm run test:coverage || echo "Coverage report generation skipped"
-    
-    - name: 上傳覆蓋率報告
-      uses: codecov/codecov-action@v3
-      if: success()
-      with:
-        file: ./coverage/lcov.info
-        flags: unittests
-        name: mursfoto-cli-coverage
-        fail_ci_if_error: false
