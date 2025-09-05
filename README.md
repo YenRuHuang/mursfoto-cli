@@ -1,6 +1,6 @@
 # 🚀 Mursfoto CLI
 
-> **Mursfoto AutoDev Factory 4.3** - Claude Code AI 代理深度整合 + 進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur
+> **Mursfoto AutoDev Factory 4.4** - 三 AI 協作系統 (Claude + Gemini 2.5 Pro + Amazon Q) + 進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur
 
 [![npm version](https://badge.fury.io/js/%40mursfoto%2Fcli.svg)](https://www.npmjs.com/package/@mursfoto/cli)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -10,7 +10,7 @@
 ## ✨ 特色功能
 
 - 🎯 **智慧項目創建** - 支援多種模板，一鍵生成完整項目
-- 🤖 **AI 驅動開發** - 整合 Claude、GPT、Gemini 等多種 AI 模型  
+- 🤖 **三 AI 協作系統** - 整合 Claude Code + Gemini 2.5 Pro + Amazon Q，提供全方位 AI 協助
 - 🏭 **MCP SubAgents 支持** - 專門化 AI 代理，提升開發效率 90%+
 - 🌐 **API Gateway 整合** - 自動註冊服務到私有 Gateway
 - 🔧 **統一服務架構** - 4 大統一服務取代 16+ 分散服務
@@ -18,7 +18,15 @@
 - 🚀 **一鍵部署** - 支援 Zeabur 等雲端平台
 - 🧪 **完整測試** - 32 個測試確保代碼品質
 
-### 🎯 NEW v4.3 進階功能 (基於成功專案最佳實踐)
+### 🎯 NEW v4.4 - 三 AI 協作系統
+
+- 🤖 **Gemini 2.5 Pro 整合** - 最新最強大的 Google AI 模型，提供深度程式碼分析
+- 📦 **Amazon Q CLI 整合** - AWS 官方 AI，提供 Shell 命令建議和最佳實踐
+- 🔄 **Claude Code 協作** - 三 AI 系統無縫協作，互補優勢
+- 🎯 **專案感知 AI** - 自動識別 mursfoto-cli 和 API Gateway 程式碼特性
+- 💡 **互動式 AI 助手** - 直觀的選單系統，輕鬆使用 AI 功能
+
+### 🎯 v4.3 進階功能 (基於成功專案最佳實踐)
 
 - 📊 **SmartMonitor** - 來自 PixelForge Studio，即時效能監控與自動擴展建議
 - 📝 **EnterpriseLogger** - 來自 AI Freelancer Tools，企業級日誌系統與安全事件記錄  
@@ -118,11 +126,74 @@ mursfoto gui --port 3000
 | 命令 | 描述 | 範例 |
 |------|------|------|
 | `create [name]` | 創建新項目 | `mursfoto create my-app --template minimal` |
+| `ai [action]` | 🤖 AI 助手系統 | `mursfoto ai` `mursfoto ai review -f app.js` |
 | `doctor` | 系統環境檢查 | `mursfoto doctor` |
 | `status` | 檢查服務狀態 | `mursfoto status` |
 | `gui [options]` | 啟動 Web GUI | `mursfoto gui --port 3000` |
 | `--version` | 顯示版本 | `mursfoto --version` |
 | `--help` | 顯示幫助 | `mursfoto --help` |
+
+## 🤖 NEW! AI 助手系統
+
+整合 **Claude Code + Gemini 2.5 Pro + Amazon Q** 三大 AI 引擎，提供全方位開發協助。
+
+### 🎯 主要功能
+
+```bash
+# 互動式 AI 選單
+mursfoto ai
+
+# 程式碼審查 (自動識別 API Gateway/CLI 程式碼)
+mursfoto ai review -f server.js
+mursfoto ai review -f lib/commands/create.js
+
+# API 路由分析
+mursfoto ai api
+
+# 部署協助 (支援 Zeabur、Docker、AWS)
+mursfoto ai deploy
+
+# 性能優化建議
+mursfoto ai optimize -f app.js
+
+# 自動生成文檔
+mursfoto ai doc
+
+# 測試程式碼生成
+mursfoto ai test -f utils.js
+
+# 自由提問
+mursfoto ai ask -q "如何優化 Express.js 性能？"
+```
+
+### 🌟 AI 功能特色
+
+- **🎯 專案感知**: 自動識別 mursfoto-cli 和 mursfoto-api-gateway 程式碼
+- **🤝 三 AI 協作**: Gemini 2.5 Pro 深度分析 + Amazon Q 命令建議 + Claude Code 實施
+- **🔍 智能審查**: 針對 API Gateway 安全性、CLI 使用體驗等專項檢查
+- **🚀 一鍵部署**: 自動生成 Zeabur、Docker 等平台配置檔案
+- **📚 文檔生成**: README、API 文檔、部署指南自動生成
+- **🧪 測試創建**: Jest 測試程式碼自動生成，包含邊界案例
+
+### 💡 使用情境
+
+| 情境 | 命令 | 說明 |
+|------|------|------|
+| 程式碼審查 | `mursfoto ai review -f routes/proxy.js` | 檢查路由安全性和性能 |
+| API 分析 | `mursfoto ai api` | 分析所有 API 端點和中間件 |
+| 部署準備 | `mursfoto ai deploy` | 生成部署配置和說明 |
+| 性能調優 | `mursfoto ai optimize -f server.js` | 識別瓶頸提供優化方案 |
+| 文檔撰寫 | `mursfoto ai doc` | 自動生成專案文檔 |
+
+### ⚙️ 設定 AI Keys
+
+```bash
+# 設定 Gemini API Key
+mursfoto ai config
+
+# 或手動設定環境變數
+export GEMINI_API_KEY="your-api-key"
+```
 
 ## 🎨 項目模板
 
