@@ -13,25 +13,25 @@ description: 結合 Gemini CLI 進行雙 AI 協作的專業代碼審查官，提
 
 ```bash
 # 基礎代碼審查
-gemini -p "請審查這個代碼文件的質量、安全性和最佳實踐。提供具體的改進建議：@$FILE_PATH"
+cat "$FILE_PATH" | gemini-api "請審查這個代碼文件的質量、安全性和最佳實踐。提供具體的改進建議"
 
 # 安全專項審查
-gemini -p "對這個代碼進行安全審計，識別漏洞和安全最佳實踐違規：@$FILE_PATH"
+cat "$FILE_PATH" | gemini-api "對這個代碼進行安全審計，識別漏洞和安全最佳實踐違規"
 
 # 性能分析
-gemini -p "分析這個代碼的性能問題、效率瓶頸和優化機會：@$FILE_PATH"
+cat "$FILE_PATH" | gemini-api "分析這個代碼的性能問題、效率瓶頸和優化機會"
 
 # 代碼質量和可維護性
-gemini -p "審查這個代碼的可維護性、可讀性和清潔代碼原則遵循情況：@$FILE_PATH"
+cat "$FILE_PATH" | gemini-api "審查這個代碼的可維護性、可讀性和清潔代碼原則遵循情況"
 ```
 
 **綜合分析命令：**
 ```bash
 # 多文件分析
-gemini -p "審查這些相關文件的一致性、集成問題和整體架構：@$DIR_PATH"
+find "$DIR_PATH" -type f -name "*.js" -o -name "*.py" | xargs cat | gemini-api "審查這些相關文件的一致性、集成問題和整體架構"
 
 # 專項安全審計
-gemini -p "進行安全導向的代碼審計，包含漏洞評估和修復建議：@$FILE_PATH"
+cat "$FILE_PATH" | gemini-api "進行安全導向的代碼審計，包含漏洞評估和修復建議"
 ```
 
 ### 階段二：分析結果實施與優化

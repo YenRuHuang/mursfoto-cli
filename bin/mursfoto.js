@@ -7,6 +7,7 @@ const pkg = require('../package.json')
 
 // 引入命令
 const { createProject } = require('../lib/commands/create')
+const { aiCommand } = require('../lib/commands/ai')
 
 // 顯示歡迎信息
 function showWelcome() {
@@ -51,6 +52,23 @@ program
         console.log(chalk.cyan('  mursfoto create my-app --template enterprise-production'))
       }
       
+      process.exit(1)
+    }
+  })
+
+// AI 命令 - 整合 Claude Code + Gemini 2.5 Pro + Amazon Q
+program
+  .command('ai [action]')
+  .description('🤖 AI 助手 - 程式碼審查、優化、文檔生成等')
+  .option('-f, --file <file>', '指定檔案路徑')
+  .option('-o, --output <output>', '輸出檔案')
+  .option('-q, --question <question>', '直接提問')
+  .action(async (action, options) => {
+    showWelcome()
+    try {
+      await aiCommand(action, options)
+    } catch (error) {
+      console.error(chalk.red('❌ AI 命令執行失敗:'), error.message)
       process.exit(1)
     }
   })
