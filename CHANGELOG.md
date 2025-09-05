@@ -5,6 +5,62 @@
 格式基於 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
 版本號遵循 [Semantic Versioning](https://semver.org/spec/v2.0.0.html)。
 
+## [4.4.0] - 2025-09-05
+
+### 🤖 三 AI 協作系統 - 重大功能更新
+
+#### ✨ 新增功能
+- **新增**: 完整的三 AI 協作系統整合
+  - **Gemini 2.5 Pro**: 最新最強大的 Google AI 模型，提供深度程式碼分析
+  - **Amazon Q CLI**: AWS 官方 AI，提供 Shell 命令建議和最佳實踐
+  - **Claude Code**: 實施改進和協作整合
+- **新增**: `mursfoto ai` 命令系統
+  - 互動式 AI 選單 (`mursfoto ai`)
+  - 程式碼審查 (`mursfoto ai review -f <file>`)
+  - API 路由分析 (`mursfoto ai api`)
+  - 部署協助 (`mursfoto ai deploy`)
+  - 性能優化 (`mursfoto ai optimize -f <file>`)
+  - 文檔生成 (`mursfoto ai doc`)
+  - 測試生成 (`mursfoto ai test -f <file>`)
+  - 自由提問 (`mursfoto ai ask -q <question>`)
+- **新增**: 專案感知 AI 功能
+  - 自動識別 mursfoto-cli 和 mursfoto-api-gateway 程式碼特性
+  - 針對不同專案類型提供專門化建議
+
+#### 🎨 輸出風格更新
+- **新增**: `mursfoto-developer` 專屬輸出風格
+  - 專為 mursfoto 專案優化的開發風格
+  - 整合 AI 協作工作流程
+  - 包含專案特定的最佳實踐和規範
+- **更新**: `code-reviewer` 風格
+  - 更新為使用 `gemini-api` 命令
+  - 優化提示詞以配合新的 AI 系統
+
+#### 📚 文檔更新
+- **更新**: README.md 大幅更新
+  - 新增完整的 AI 功能說明文檔
+  - 詳細的使用範例和情境表格
+  - 更新版本號和特色功能描述
+- **更新**: package.json 描述更新為三 AI 協作系統
+
+#### 🛠️ 技術改進
+- **優化**: AI 命令整合到 mursfoto CLI 主系統
+- **新增**: 完整的錯誤處理和使用者友好的提示
+- **優化**: 支援檔案類型自動識別和專案上下文感知
+- **新增**: API Key 配置管理系統
+
+#### 🎯 使用體驗提升
+- **新增**: 互動式選單系統，降低學習成本
+- **優化**: 命令行參數設計，支援快速操作
+- **新增**: 豐富的使用情境和範例
+- **改善**: 更直觀的錯誤訊息和建議
+
+#### 🚀 效能優勢
+- **三 AI 協作**: 結合不同 AI 的優勢，提供更全面的分析
+- **專案感知**: 根據專案類型自動調整分析重點
+- **批量處理**: 支援多文件和目錄級別的分析
+- **快取優化**: 智能快取機制提升響應速度
+
 ## [4.0.1] - 2025-08-20
 
 ### 🏭 MCP SubAgents 整合
