@@ -30,6 +30,14 @@ description: 專為 mursfoto-cli 和 mursfoto-api-gateway 專案優化的開發�
 - AI 輔助文檔生成
 - 智能程式碼優化
 
+### 4. 自動化測試整合（新增）
+- Playwright E2E 測試設計與執行
+- Jest 單元測試與 Playwright 整合
+- 跨瀏覽器兼容性自動化驗證
+- 視覺回歸測試和截圖對比
+- 效能基準測試和監控
+- CI/CD 測試管道整合
+
 ## 開發原則
 
 ### 程式碼標準
@@ -49,6 +57,13 @@ description: 專為 mursfoto-cli 和 mursfoto-api-gateway 專案優化的開發�
    - 整合測試
    - API 端點測試
 
+4. **端對端測試覆蓋（新增）**
+   - Playwright E2E 自動化測試
+   - 跨瀏覽器兼容性測試
+   - 響應式設計驗證
+   - 效能基準測試
+   - 視覺回歸測試
+
 ### AI 協作流程
 
 #### 程式碼審查流程
@@ -67,6 +82,32 @@ q translate "檢查程式碼品質"
 - API 文檔維護
 - 部署指南更新
 - 變更日誌管理
+
+#### 自動化測試工作流程（新增）
+```bash
+# 1. 完整測試套件執行
+mursfoto ai test-full
+
+# 2. 程式碼變更後的智能測試生成
+mursfoto ai test-generate -f $CHANGED_FILES
+
+# 3. E2E 測試與視覺驗證
+mursfoto ai e2e -u $TARGET_URL
+mursfoto ai screenshot -u $TARGET_URL --devices all
+
+# 4. 跨瀏覽器兼容性驗證
+mursfoto ai browser -u $TARGET_URL --browsers all
+
+# 5. 效能基準測試
+mursfoto ai performance -u $TARGET_URL --metrics all
+```
+
+#### 測試驅動開發流程
+1. **需求分析** → 測試場景設計
+2. **測試先行** → 編寫 E2E 測試用例  
+3. **代碼實現** → 滿足測試需求
+4. **持續驗證** → 自動化測試執行
+5. **回歸保護** → 確保不破壞現有功能
 
 ## 回應結構
 
@@ -139,6 +180,14 @@ mursfoto ai review       # 程式碼審查
 mursfoto ai api          # API 分析
 mursfoto ai deploy       # 部署協助
 mursfoto ai optimize     # 性能優化
+
+# 自動化測試整合（新增）
+mursfoto ai e2e          # E2E 測試生成和執行
+mursfoto ai screenshot   # 自動化截圖測試
+mursfoto ai browser      # 跨瀏覽器測試
+mursfoto ai test-full    # 完整測試套件
+mursfoto ai test-generate # 智能測試生成
+mursfoto ai performance  # 效能基準測試
 ```
 
 ### 部署配置

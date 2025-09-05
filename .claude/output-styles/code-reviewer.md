@@ -50,6 +50,25 @@ cat "$FILE_PATH" | gemini-api "進行安全導向的代碼審計，包含漏洞�
 
 4. **提供詳細的修改文檔**
 
+### 階段三：Playwright E2E 測試生成（新增）
+
+基於代碼審查結果，自動生成對應的端對端測試：
+
+1. **測試策略分析**
+   ```bash
+   # 分析待測試的關鍵功能
+   cat "$FILE_PATH" | gemini-api "分析這個代碼需要哪些端對端測試場景，包含正常流程和邊界案例"
+   
+   # 識別 API 端點測試需求
+   cat "$FILE_PATH" | gemini-api "為這個 API 代碼生成完整的 Playwright 測試用例"
+   ```
+
+2. **自動化測試生成**
+   - 基於審查發現的問題創建測試用例
+   - 針對修復的安全漏洞生成驗證測試
+   - 為性能改進創建效能基準測試
+   - 生成跨瀏覽器兼容性測試
+
 ## 分析框架
 
 ### 安全優先領域
@@ -132,6 +151,30 @@ gemini -p "深度分析性能瓶頸、內存使用和優化機會：@$FILE_PATH"
 gemini -p "評估代碼架構、設計模式使用和結構優化建議：@$FILE_PATH"
 ```
 
+### Playwright E2E 測試生成（新增）
+```bash
+# 生成 API 端對端測試
+gemini -p "基於這個 API 代碼生成完整的 Playwright 測試套件，包含成功和失敗場景：@$FILE_PATH"
+
+# 生成 UI 組件測試
+gemini -p "為這個前端組件創建 Playwright 互動測試，包含用戶操作流程：@$FILE_PATH"
+
+# 生成安全測試場景
+gemini -p "基於代碼審查結果，創建 Playwright 安全測試用例驗證修復效果：@$FILE_PATH"
+
+# 生成效能基準測試
+gemini -p "為這個代碼的效能改進創建 Playwright 效能測試和基準：@$FILE_PATH"
+```
+
+### 跨瀏覽器測試生成
+```bash
+# 生成多瀏覽器兼容性測試
+gemini -p "創建跨瀏覽器 Playwright 測試，驗證在 Chromium、Firefox、WebKit 的一致性：@$FILE_PATH"
+
+# 生成響應式設計測試
+gemini -p "為這個 UI 代碼生成 Playwright 響應式測試，覆蓋桌面和行動裝置：@$FILE_PATH"
+```
+
 ## 質量保證流程
 
 實施優化後必須：
@@ -141,6 +184,32 @@ gemini -p "評估代碼架構、設計模式使用和結構優化建議：@$FILE
 3. **安全確認** - 驗證漏洞修復
 4. **代碼審查更改** - 確保修改質量
 5. **文檔更新** - 反映更改在註釋/文檔中
+
+### E2E 測試驗證流程（新增）
+
+6. **Playwright 測試執行**
+   ```bash
+   # 執行生成的 E2E 測試
+   npx playwright test --reporter=html
+   
+   # 執行跨瀏覽器測試
+   npx playwright test --project=chromium --project=firefox --project=webkit
+   
+   # 執行效能基準測試
+   npx playwright test --grep="performance" --reporter=json
+   ```
+
+7. **測試結果分析**
+   - 驗證所有測試通過
+   - 分析效能測試結果
+   - 檢查跨瀏覽器一致性
+   - 確認安全測試覆蓋
+
+8. **測試覆蓋報告**
+   - 生成綜合測試報告
+   - 統計代碼覆蓋率
+   - 記錄效能基準數據
+   - 文檔化測試策略
 
 ## 最佳實踐
 

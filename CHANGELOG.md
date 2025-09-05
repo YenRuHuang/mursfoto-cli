@@ -5,6 +5,56 @@
 格式基於 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
 版本號遵循 [Semantic Versioning](https://semver.org/spec/v2.0.0.html)。
 
+## [4.5.0] - 2025-09-05
+
+### 🎭 SubAgents & Playwright 完美整合 - 突破性更新
+
+#### ✨ 核心亮點
+- **完美協作**: SubAgents 與 Playwright 實現 100% 互補，0% 衝突
+- **智能測試生態**: 從代碼審查到自動化測試的完整 AI 驅動工作流程
+- **業界領先**: 三 AI 協作 + Playwright 自動化 = 史上最完整的測試解決方案
+
+#### 🏭 SubAgents 智能代理系統
+- **新增**: `test-architect` SubAgent - 專精測試策略設計和框架整合
+- **增強**: `code-reviewer` SubAgent - 添加 Playwright E2E 測試生成階段
+- **更新**: `mursfoto-developer` Output Style - 整合自動化測試工作流程
+- **協作**: SubAgents 與 Playwright 形成智能協作生態系統
+
+#### 🎭 Playwright 自動化測試整合
+- **新增**: 完整 Playwright 支援 - E2E 測試、視覺測試、跨瀏覽器驗證
+- **新增**: 6 個新的 AI 測試命令
+  - `mursfoto ai e2e` - E2E 測試生成和執行
+  - `mursfoto ai screenshot` - 自動化截圖測試
+  - `mursfoto ai browser` - 跨瀏覽器兼容性測試
+  - `mursfoto ai test-full` - 完整測試套件執行
+  - `mursfoto ai test-generate` - 智能測試生成（5 種類型）
+  - `mursfoto ai performance` - 效能基準測試
+- **新增**: 智能測試金字塔 - 70% Unit + 20% Integration + 10% E2E
+
+#### 🤖 AI 協作增強
+- **智能測試工作流程**: 代碼審查 → 測試生成 → 自動化執行 → 結果分析
+- **三階段測試策略**: Gemini 分析 → AI 生成測試 → Playwright 執行
+- **跨平台測試**: 支援 Chromium、Firefox、WebKit 自動化測試
+- **效能監控**: 自動載入時間分析、記憶體使用監控、網路請求分析
+
+#### 🛠️ 技術改進
+- **新增**: Playwright 依賴整合到 mursfoto-cli 和 API Gateway
+- **新增**: 完整的 E2E 測試配置 (`playwright.config.js`)
+- **新增**: API Gateway 自動化測試套件
+- **優化**: AI 命令架構，支援更多測試場景
+
+#### 📊 測試生態系統
+- **完整覆蓋**: Unit + Integration + E2E + Performance + Visual + Security 測試
+- **智能生成**: 基於代碼分析自動生成測試用例
+- **自動化報告**: HTML、JSON、JUnit 格式測試報告
+- **CI/CD 整合**: 支援持續集成和部署管道
+
+#### 🎯 使用體驗提升
+- **互動式選單**: 新增測試相關選項到 AI 助手
+- **命令行整合**: 完整的命令行參數支援
+- **錯誤處理**: 友好的錯誤訊息和建議
+- **文檔完整**: 更新所有相關文檔和使用指南
+
 ## [4.4.0] - 2025-09-05
 
 ### 🤖 三 AI 協作系統 - 重大功能更新

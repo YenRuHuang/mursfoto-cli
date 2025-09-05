@@ -1,7 +1,7 @@
 {
   "name": "@mursfoto/cli",
-  "version": "4.4.0",
-  "description": "Mursfoto AutoDev Factory 4.4 - 三 AI 協作系統 (Claude + Gemini 2.5 Pro + Amazon Q) + 進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur",
+  "version": "4.5.0",
+  "description": "Mursfoto AutoDev Factory 4.5 - 三 AI 協作系統 + Playwright 自動化測試 + SubAgents 智能代理 + 完整測試生態系統",
   "main": "bin/mursfoto.js",
   "bin": {
     "mursfoto": "./bin/mursfoto.js",
@@ -28,7 +28,7 @@
     "generator",
     "enterprise",
     "microservices",
-    "api-gateway", 
+    "api-gateway",
     "n8n",
     "workflow",
     "devtools",
@@ -64,11 +64,12 @@
     "express": "^4.18.2",
     "figlet": "^1.7.0",
     "fs-extra": "^11.1.1",
-    "inquirer": "^8.2.6",
     "handlebars": "^4.7.8",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
+    "playwright": "^1.55.0",
     "simple-git": "^3.20.0",
-    "socket.io": "^4.7.5",
-    "ora": "^5.4.1"
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
     "jest": "^29.7.0"
@@ -78,7 +79,7 @@
     "lib/",
     "docs/",
     "README.md",
-    "LICENSE", 
+    "LICENSE",
     "CHANGELOG.md"
   ],
   "preferGlobal": true,

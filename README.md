@@ -1,6 +1,6 @@
 # 🚀 Mursfoto CLI
 
-> **Mursfoto AutoDev Factory 4.4** - 三 AI 協作系統 (Claude + Gemini 2.5 Pro + Amazon Q) + 進階功能 (SmartMonitor, EnterpriseLogger, SmartRouter) + MySQL/Zeabur
+> **Mursfoto AutoDev Factory 4.5** - 三 AI 協作系統 + Playwright 自動化測試 + SubAgents 智能代理 + 完整測試生態系統
 
 [![npm version](https://badge.fury.io/js/%40mursfoto%2Fcli.svg)](https://www.npmjs.com/package/@mursfoto/cli)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -11,14 +11,25 @@
 
 - 🎯 **智慧項目創建** - 支援多種模板，一鍵生成完整項目
 - 🤖 **三 AI 協作系統** - 整合 Claude Code + Gemini 2.5 Pro + Amazon Q，提供全方位 AI 協助
-- 🏭 **MCP SubAgents 支持** - 專門化 AI 代理，提升開發效率 90%+
+- 🎭 **Playwright 自動化測試** - E2E 測試、跨瀏覽器驗證、視覺回歸測試
+- 🏭 **SubAgents 智能代理** - 包含 test-architect、code-reviewer、error-debugger 專業代理
 - 🌐 **API Gateway 整合** - 自動註冊服務到私有 Gateway
 - 🔧 **統一服務架構** - 4 大統一服務取代 16+ 分散服務
 - 📊 **即時監控 GUI** - Web 介面系統監控
 - 🚀 **一鍵部署** - 支援 Zeabur 等雲端平台
-- 🧪 **完整測試** - 32 個測試確保代碼品質
+- 🧪 **完整測試生態系統** - Unit + Integration + E2E + Performance + Visual 測試
 
-### 🎯 NEW v4.4 - 三 AI 協作系統
+### 🎯 NEW v4.5 - SubAgents & Playwright 完美整合
+
+- 🎭 **Playwright 全面整合** - E2E 測試、截圖測試、跨瀏覽器測試、效能基準測試
+- 🏭 **test-architect SubAgent** - 專精測試策略設計的 AI 代理
+- 🔄 **智能測試工作流程** - 從代碼審查到自動化測試的完整流程
+- 🤖 **增強的 AI 命令** - 新增 6 個測試相關的 AI 命令
+- 🎯 **完整測試金字塔** - 70% Unit + 20% Integration + 10% E2E 測試策略
+- 📊 **智能測試生成** - 基於代碼分析自動生成 5 種類型測試
+- 🌍 **跨瀏覽器自動化** - 支援 Chromium、Firefox、WebKit 自動化測試
+
+### 🎯 v4.4 - 三 AI 協作系統
 
 - 🤖 **Gemini 2.5 Pro 整合** - 最新最強大的 Google AI 模型，提供深度程式碼分析
 - 📦 **Amazon Q CLI 整合** - AWS 官方 AI，提供 Shell 命令建議和最佳實踐
@@ -162,6 +173,24 @@ mursfoto ai doc
 # 測試程式碼生成
 mursfoto ai test -f utils.js
 
+# 🎭 Playwright E2E 測試生成和執行
+mursfoto ai e2e -f server.js
+
+# 📸 自動化截圖測試
+mursfoto ai screenshot -u http://localhost:4100
+
+# 🌍 跨瀏覽器兼容性測試
+mursfoto ai browser -u http://localhost:4100
+
+# 🧪 完整測試套件執行
+mursfoto ai test-full
+
+# 🤖 智能測試生成 (Unit + Integration + E2E + Security + Performance)
+mursfoto ai test-generate -f app.js
+
+# ⚡ 效能基準測試和優化建議
+mursfoto ai performance -u http://localhost:4100
+
 # 自由提問
 mursfoto ai ask -q "如何優化 Express.js 性能？"
 ```
@@ -170,10 +199,12 @@ mursfoto ai ask -q "如何優化 Express.js 性能？"
 
 - **🎯 專案感知**: 自動識別 mursfoto-cli 和 mursfoto-api-gateway 程式碼
 - **🤝 三 AI 協作**: Gemini 2.5 Pro 深度分析 + Amazon Q 命令建議 + Claude Code 實施
+- **🎭 Playwright 自動化**: E2E 測試、視覺測試、跨瀏覽器驗證完全自動化
+- **🏭 SubAgents 智能**: test-architect、code-reviewer、error-debugger 專業代理
 - **🔍 智能審查**: 針對 API Gateway 安全性、CLI 使用體驗等專項檢查
 - **🚀 一鍵部署**: 自動生成 Zeabur、Docker 等平台配置檔案
 - **📚 文檔生成**: README、API 文檔、部署指南自動生成
-- **🧪 測試創建**: Jest 測試程式碼自動生成，包含邊界案例
+- **🧪 完整測試生態系統**: Unit + Integration + E2E + Performance + Visual 測試全覆蓋
 
 ### 💡 使用情境
 
@@ -181,6 +212,11 @@ mursfoto ai ask -q "如何優化 Express.js 性能？"
 |------|------|------|
 | 程式碼審查 | `mursfoto ai review -f routes/proxy.js` | 檢查路由安全性和性能 |
 | API 分析 | `mursfoto ai api` | 分析所有 API 端點和中間件 |
+| 端對端測試 | `mursfoto ai e2e -f server.js` | 生成 Playwright E2E 測試 |
+| 跨瀏覽器測試 | `mursfoto ai browser -u localhost:4100` | 驗證多瀏覽器兼容性 |
+| 完整測試套件 | `mursfoto ai test-full` | 執行 Unit + E2E + Performance 測試 |
+| 智能測試生成 | `mursfoto ai test-generate -f app.js` | 生成 5 種類型測試 |
+| 效能基準測試 | `mursfoto ai performance -u localhost:4100` | 效能分析和優化建議 |
 | 部署準備 | `mursfoto ai deploy` | 生成部署配置和說明 |
 | 性能調優 | `mursfoto ai optimize -f server.js` | 識別瓶頸提供優化方案 |
 | 文檔撰寫 | `mursfoto ai doc` | 自動生成專案文檔 |

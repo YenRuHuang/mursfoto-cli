@@ -59,10 +59,13 @@ program
 // AI 命令 - 整合 Claude Code + Gemini 2.5 Pro + Amazon Q
 program
   .command('ai [action]')
-  .description('🤖 AI 助手 - 程式碼審查、優化、文檔生成等')
+  .description('🤖 AI 助手 - 程式碼審查、優化、文檔生成等 (新增 Playwright 功能)')
   .option('-f, --file <file>', '指定檔案路徑')
   .option('-o, --output <output>', '輸出檔案')
   .option('-q, --question <question>', '直接提問')
+  .option('-u, --url <url>', '指定測試 URL')
+  .option('--browsers <browsers>', '選擇瀏覽器 (chromium,firefox,webkit)')
+  .option('--devices <devices>', '選擇裝置類型')
   .action(async (action, options) => {
     showWelcome()
     try {
