@@ -26,9 +26,6 @@ jobs:
     - name: 安裝依賴
       run: npm ci --legacy-peer-deps
     
-    - name: 安裝 Playwright 瀏覽器
-      run: npx playwright install --with-deps
-    
     - name: 執行測試
       run: npm test
     
